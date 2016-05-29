@@ -5,20 +5,37 @@
 const CHANNEL_LINK = process.argv[2] || 'vcan0';
 
 // Dependencies
-var util = require('util');
-var can = require('socketcan');
-var fs = require('fs');
+var util    = require('util');
+var can     = require('socketcan');
+var fs      = require('fs');
+var app     = require('express')();
+var server  = require('http').Server(app);
+var io      = require('socket.io')(server);
 
-// Parse database
+// Initialization
 var network = can.parseNetworkDescription('messages.kcd');
-var bus = network.buses['BMS Bus'];
+var bus     = network.buses['BMS Bus'];
 var channel = can.createRawChannel(CHANNEL_LINK);
 var db      = new can.DatabaseService(channel, bus);
 
 channel.start();
+console.log('CAN channel started');
 
-// Log any message
+server.listen(3000);
+console.log('Web server started.');
+io.on('connection', function(socket){
+    console.log('A client connected');
+    socket.on('disconnect', function(){
+        console.log('A client disconnected');
+    });
+    socket.on('status', function(msg){
+        console.log('An update request has been received');
+        //socket.broadcast.emit('draw', msg);
+    });
+});
+
 initListeners();
+console.log('CAN service initialized');
 
 function initListeners() {
     var msgNameList = network.nodes['1'].buses['BMS Bus'].produces.map(function (msg) {
@@ -32,6 +49,7 @@ function initListeners() {
                 if (message.signals.hasOwnProperty(sig)) {
                     message.signals[sig].onChange(function(s) {
                         console.log(s.name + ' ' + s.value);
+                        io.emit('data', s);
                     });
                 }
             }
