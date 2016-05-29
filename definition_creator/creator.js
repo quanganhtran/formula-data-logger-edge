@@ -47,16 +47,17 @@ function createVoltage() {
     for (var board = 0; board < BOARD_COUNT; board++) {
         var msgs = [];
         for (var msg = 0; msg < 3; msg++) {
+            var prefix = 'board' + (board + 1) + '.';
             var signals = [];
             for (var signal = 0; signal < 4; signal++) {
                 signals.push({
-                    name: 'board' + (board + 1) + 'cell' + (msg * 4 + signal + 1),
+                    name: prefix + 'cell' + (msg * 4 + signal + 1),
                     offset: Number(signal * 16).toString()
                 });
             }
             msgs.push({
                 id: byteString(VOLTAGE_MSG_ID + board * 3 + msg),
-                name: 'Cell board ' + (board + 1) + ' part ' + (msg + 1),
+                name: 'msgCell.board' + (board + 1) + '.part' + (msg + 1),
                 length: '8',
                 signals: signals
             });
@@ -72,10 +73,10 @@ function createTemp() {
     var temps = [];
     for (var board = 0; board < BOARD_COUNT; board++) {
         var msgs = [];
-        var prefix = 'board' + (board + 1);
+        var prefix = 'board' + (board + 1) + '.';
         msgs.push({
             id: byteString(TEMP_MSG_ID + board * 2),
-            name: 'Temp board ' + (board + 1) + ' part 1',
+            name: 'msgTemp.board' + (board + 1) + '.part1',
             length: '8',
             signals: [
                 {
@@ -98,7 +99,7 @@ function createTemp() {
         });
         msgs.push({
             id: byteString(TEMP_MSG_ID + board * 2 + 1),
-            name: 'Temp board ' + (board + 1) + ' part 2',
+            name: 'msgTemp.board' + (board + 1) + '.part2',
             length: '4',
             signals: [
                 {

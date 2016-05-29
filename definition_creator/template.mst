@@ -2,8 +2,7 @@
     <Document name="Formula BMS Logger" version="1.0" author="Anh Do" company="Metropolia Motorsport" date="2016-05-28">
         Data logger descriptor for the BMS
     </Document>
-    <Node id="1" name="BMS">
-    </Node>
+    <Node id="1" name="BMS"/>
     <Node id="2" name="Data logger"/>
 
     <Bus name="BMS Bus">
