@@ -1,4 +1,4 @@
-<NetworkDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://kayak.2codeornot2code.org/1.0" xsi:noNamespaceSchemaLocation="Definition.xsd">
+<NetworkDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://kayak.2codeornot2code.org/1.0" xsi:noNamespaceSchemaLocation="../Definition.xsd">
     <Document name="Formula BMS Logger" version="1.0" author="Anh Do" company="Metropolia Motorsport" date="2016-05-28">
         Data logger descriptor for the BMS
     </Document>
@@ -37,14 +37,14 @@
             <Signal name="current" endianess="big" offset="16"/>
             <Signal name="power" endianess="big" offset="32"/>
         </Message>
-        <Message id="0x04" name="Cell data of measurement board 1">
+        <Message id="0x06" name="Cell data of measurement board 1">
             <Producer>
                 <NodeRef id="1"/>
             </Producer>
-            <Signal name="cell1" offset="0" endianess="big" length="8"/>
-            <Signal name="cell2" offset="16" endianess="big" length="8"/>
-            <Signal name="cell3" offset="32" endianess="big" length="8"/>
-            <Signal name="cell4" offset="48" endianess="big" length="8"/>
+            <Signal name="cell1" offset="0" endianess="big" length="16"/>
+            <Signal name="cell2" offset="16" endianess="big" length="16"/>
+            <Signal name="cell3" offset="32" endianess="big" length="16"/>
+            <Signal name="cell4" offset="48" endianess="big" length="16"/>
         </Message>
     </Bus>
 

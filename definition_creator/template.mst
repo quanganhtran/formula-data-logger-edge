@@ -1,0 +1,60 @@
+<NetworkDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://kayak.2codeornot2code.org/1.0" xsi:noNamespaceSchemaLocation="Definition.xsd">
+    <Document name="Formula BMS Logger" version="1.0" author="Anh Do" company="Metropolia Motorsport" date="2016-05-28">
+        Data logger descriptor for the BMS
+    </Document>
+    <Node id="1" name="BMS">
+    </Node>
+    <Node id="2" name="Date logger"/>
+
+    <Bus name="BMS Bus">
+        {{#bus}}
+        <Message id="{{request.id}}" name="Data request" length="0" remote="true">
+            <Producer>
+                <NodeRef id="2"/>
+            </Producer>
+        </Message>
+        <Message id="{{status.id}}" name="Status data of BMS" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+                <NodeRef id="2"/>
+            </Producer>
+            <Signal name="status_flags" offset="0" length="8"/>
+            <Signal name="ext_status_flags" offset="8" length="8"/>
+            <Signal name="settings_flags" offset="16" length="8"/>
+            <Signal name="fan1_duty_cycle" offset="24" length="8"/>
+            <Signal name="fan2_duty_cycle" offset="32" length="8"/>
+            <Signal name="disch_duty_cycle" offset="40" length="8"/>
+        </Message>
+        <Message id="{{status2.id}}" name="Status data of BMS second msg" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+                <NodeRef id="2"/>
+            </Producer>
+            <Signal name="sum_of_cells" endianess="big" offset="0"/>
+            <Signal name="current" endianess="big" offset="16"/>
+            <Signal name="power" endianess="big" offset="32"/>
+        </Message>
+        {{#voltages}}{{#messages}}
+        <Message id="{{id}}" name="{{name}}" length="{{length}}">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            {{#signals}}
+            <Signal name="{{name}}" offset="{{offset}}" endianess="big" length="16"/>
+            {{/signals}}
+        </Message>
+        {{/messages}}{{/voltages}}
+        {{#temps}}{{#messages}}
+        <Message id="{{id}}" name="{{name}}" length="{{length}}">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            {{#signals}}
+            <Signal name="{{name}}" offset="{{offset}}" endianess="big" length="16"/>
+            {{/signals}}
+        </Message>
+        {{/messages}}{{/temps}}
+        {{/bus}}
+    </Bus>
+
+</NetworkDefinition>

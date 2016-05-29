@@ -1,0 +1,554 @@
+<NetworkDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://kayak.2codeornot2code.org/1.0" xsi:noNamespaceSchemaLocation="Definition.xsd">
+    <Document name="Formula BMS Logger" version="1.0" author="Anh Do" company="Metropolia Motorsport" date="2016-05-28">
+        Data logger descriptor for the BMS
+    </Document>
+    <Node id="1" name="BMS">
+    </Node>
+    <Node id="2" name="Date logger"/>
+
+    <Bus name="BMS Bus">
+        <Message id="0x00" name="Data request" length="0" remote="true">
+            <Producer>
+                <NodeRef id="2"/>
+            </Producer>
+        </Message>
+        <Message id="0x02" name="Status data of BMS" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+                <NodeRef id="2"/>
+            </Producer>
+            <Signal name="status_flags" offset="0" length="8"/>
+            <Signal name="ext_status_flags" offset="8" length="8"/>
+            <Signal name="settings_flags" offset="16" length="8"/>
+            <Signal name="fan1_duty_cycle" offset="24" length="8"/>
+            <Signal name="fan2_duty_cycle" offset="32" length="8"/>
+            <Signal name="disch_duty_cycle" offset="40" length="8"/>
+        </Message>
+        <Message id="0x03" name="Status data of BMS second msg" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+                <NodeRef id="2"/>
+            </Producer>
+            <Signal name="sum_of_cells" endianess="big" offset="0"/>
+            <Signal name="current" endianess="big" offset="16"/>
+            <Signal name="power" endianess="big" offset="32"/>
+        </Message>
+        <Message id="0x06" name="Cell data of measurement board 1" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell1" offset="0" endianess="big" length="16"/>
+            <Signal name="cell2" offset="16" endianess="big" length="16"/>
+            <Signal name="cell3" offset="32" endianess="big" length="16"/>
+            <Signal name="cell4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x07" name="Cell data of measurement board 1" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell5" offset="0" endianess="big" length="16"/>
+            <Signal name="cell6" offset="16" endianess="big" length="16"/>
+            <Signal name="cell7" offset="32" endianess="big" length="16"/>
+            <Signal name="cell8" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x08" name="Cell data of measurement board 1" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell9" offset="0" endianess="big" length="16"/>
+            <Signal name="cell10" offset="16" endianess="big" length="16"/>
+            <Signal name="cell11" offset="32" endianess="big" length="16"/>
+            <Signal name="cell12" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x09" name="Cell data of measurement board 2" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell1" offset="0" endianess="big" length="16"/>
+            <Signal name="cell2" offset="16" endianess="big" length="16"/>
+            <Signal name="cell3" offset="32" endianess="big" length="16"/>
+            <Signal name="cell4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x0A" name="Cell data of measurement board 2" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell5" offset="0" endianess="big" length="16"/>
+            <Signal name="cell6" offset="16" endianess="big" length="16"/>
+            <Signal name="cell7" offset="32" endianess="big" length="16"/>
+            <Signal name="cell8" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x0B" name="Cell data of measurement board 2" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell9" offset="0" endianess="big" length="16"/>
+            <Signal name="cell10" offset="16" endianess="big" length="16"/>
+            <Signal name="cell11" offset="32" endianess="big" length="16"/>
+            <Signal name="cell12" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x0C" name="Cell data of measurement board 3" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell1" offset="0" endianess="big" length="16"/>
+            <Signal name="cell2" offset="16" endianess="big" length="16"/>
+            <Signal name="cell3" offset="32" endianess="big" length="16"/>
+            <Signal name="cell4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x0D" name="Cell data of measurement board 3" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell5" offset="0" endianess="big" length="16"/>
+            <Signal name="cell6" offset="16" endianess="big" length="16"/>
+            <Signal name="cell7" offset="32" endianess="big" length="16"/>
+            <Signal name="cell8" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x0E" name="Cell data of measurement board 3" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell9" offset="0" endianess="big" length="16"/>
+            <Signal name="cell10" offset="16" endianess="big" length="16"/>
+            <Signal name="cell11" offset="32" endianess="big" length="16"/>
+            <Signal name="cell12" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x0F" name="Cell data of measurement board 4" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell1" offset="0" endianess="big" length="16"/>
+            <Signal name="cell2" offset="16" endianess="big" length="16"/>
+            <Signal name="cell3" offset="32" endianess="big" length="16"/>
+            <Signal name="cell4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x10" name="Cell data of measurement board 4" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell5" offset="0" endianess="big" length="16"/>
+            <Signal name="cell6" offset="16" endianess="big" length="16"/>
+            <Signal name="cell7" offset="32" endianess="big" length="16"/>
+            <Signal name="cell8" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x11" name="Cell data of measurement board 4" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell9" offset="0" endianess="big" length="16"/>
+            <Signal name="cell10" offset="16" endianess="big" length="16"/>
+            <Signal name="cell11" offset="32" endianess="big" length="16"/>
+            <Signal name="cell12" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x12" name="Cell data of measurement board 5" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell1" offset="0" endianess="big" length="16"/>
+            <Signal name="cell2" offset="16" endianess="big" length="16"/>
+            <Signal name="cell3" offset="32" endianess="big" length="16"/>
+            <Signal name="cell4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x13" name="Cell data of measurement board 5" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell5" offset="0" endianess="big" length="16"/>
+            <Signal name="cell6" offset="16" endianess="big" length="16"/>
+            <Signal name="cell7" offset="32" endianess="big" length="16"/>
+            <Signal name="cell8" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x14" name="Cell data of measurement board 5" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell9" offset="0" endianess="big" length="16"/>
+            <Signal name="cell10" offset="16" endianess="big" length="16"/>
+            <Signal name="cell11" offset="32" endianess="big" length="16"/>
+            <Signal name="cell12" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x15" name="Cell data of measurement board 6" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell1" offset="0" endianess="big" length="16"/>
+            <Signal name="cell2" offset="16" endianess="big" length="16"/>
+            <Signal name="cell3" offset="32" endianess="big" length="16"/>
+            <Signal name="cell4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x16" name="Cell data of measurement board 6" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell5" offset="0" endianess="big" length="16"/>
+            <Signal name="cell6" offset="16" endianess="big" length="16"/>
+            <Signal name="cell7" offset="32" endianess="big" length="16"/>
+            <Signal name="cell8" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x17" name="Cell data of measurement board 6" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell9" offset="0" endianess="big" length="16"/>
+            <Signal name="cell10" offset="16" endianess="big" length="16"/>
+            <Signal name="cell11" offset="32" endianess="big" length="16"/>
+            <Signal name="cell12" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x18" name="Cell data of measurement board 7" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell1" offset="0" endianess="big" length="16"/>
+            <Signal name="cell2" offset="16" endianess="big" length="16"/>
+            <Signal name="cell3" offset="32" endianess="big" length="16"/>
+            <Signal name="cell4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x19" name="Cell data of measurement board 7" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell5" offset="0" endianess="big" length="16"/>
+            <Signal name="cell6" offset="16" endianess="big" length="16"/>
+            <Signal name="cell7" offset="32" endianess="big" length="16"/>
+            <Signal name="cell8" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x1A" name="Cell data of measurement board 7" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell9" offset="0" endianess="big" length="16"/>
+            <Signal name="cell10" offset="16" endianess="big" length="16"/>
+            <Signal name="cell11" offset="32" endianess="big" length="16"/>
+            <Signal name="cell12" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x1B" name="Cell data of measurement board 8" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell1" offset="0" endianess="big" length="16"/>
+            <Signal name="cell2" offset="16" endianess="big" length="16"/>
+            <Signal name="cell3" offset="32" endianess="big" length="16"/>
+            <Signal name="cell4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x1C" name="Cell data of measurement board 8" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell5" offset="0" endianess="big" length="16"/>
+            <Signal name="cell6" offset="16" endianess="big" length="16"/>
+            <Signal name="cell7" offset="32" endianess="big" length="16"/>
+            <Signal name="cell8" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x1D" name="Cell data of measurement board 8" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell9" offset="0" endianess="big" length="16"/>
+            <Signal name="cell10" offset="16" endianess="big" length="16"/>
+            <Signal name="cell11" offset="32" endianess="big" length="16"/>
+            <Signal name="cell12" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x1E" name="Cell data of measurement board 9" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell1" offset="0" endianess="big" length="16"/>
+            <Signal name="cell2" offset="16" endianess="big" length="16"/>
+            <Signal name="cell3" offset="32" endianess="big" length="16"/>
+            <Signal name="cell4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x1F" name="Cell data of measurement board 9" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell5" offset="0" endianess="big" length="16"/>
+            <Signal name="cell6" offset="16" endianess="big" length="16"/>
+            <Signal name="cell7" offset="32" endianess="big" length="16"/>
+            <Signal name="cell8" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x20" name="Cell data of measurement board 9" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell9" offset="0" endianess="big" length="16"/>
+            <Signal name="cell10" offset="16" endianess="big" length="16"/>
+            <Signal name="cell11" offset="32" endianess="big" length="16"/>
+            <Signal name="cell12" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x21" name="Cell data of measurement board 10" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell1" offset="0" endianess="big" length="16"/>
+            <Signal name="cell2" offset="16" endianess="big" length="16"/>
+            <Signal name="cell3" offset="32" endianess="big" length="16"/>
+            <Signal name="cell4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x22" name="Cell data of measurement board 10" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell5" offset="0" endianess="big" length="16"/>
+            <Signal name="cell6" offset="16" endianess="big" length="16"/>
+            <Signal name="cell7" offset="32" endianess="big" length="16"/>
+            <Signal name="cell8" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x23" name="Cell data of measurement board 10" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell9" offset="0" endianess="big" length="16"/>
+            <Signal name="cell10" offset="16" endianess="big" length="16"/>
+            <Signal name="cell11" offset="32" endianess="big" length="16"/>
+            <Signal name="cell12" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x24" name="Cell data of measurement board 11" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell1" offset="0" endianess="big" length="16"/>
+            <Signal name="cell2" offset="16" endianess="big" length="16"/>
+            <Signal name="cell3" offset="32" endianess="big" length="16"/>
+            <Signal name="cell4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x25" name="Cell data of measurement board 11" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell5" offset="0" endianess="big" length="16"/>
+            <Signal name="cell6" offset="16" endianess="big" length="16"/>
+            <Signal name="cell7" offset="32" endianess="big" length="16"/>
+            <Signal name="cell8" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x26" name="Cell data of measurement board 11" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell9" offset="0" endianess="big" length="16"/>
+            <Signal name="cell10" offset="16" endianess="big" length="16"/>
+            <Signal name="cell11" offset="32" endianess="big" length="16"/>
+            <Signal name="cell12" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x27" name="Cell data of measurement board 12" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell1" offset="0" endianess="big" length="16"/>
+            <Signal name="cell2" offset="16" endianess="big" length="16"/>
+            <Signal name="cell3" offset="32" endianess="big" length="16"/>
+            <Signal name="cell4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x28" name="Cell data of measurement board 12" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell5" offset="0" endianess="big" length="16"/>
+            <Signal name="cell6" offset="16" endianess="big" length="16"/>
+            <Signal name="cell7" offset="32" endianess="big" length="16"/>
+            <Signal name="cell8" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x29" name="Cell data of measurement board 12" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="cell9" offset="0" endianess="big" length="16"/>
+            <Signal name="cell10" offset="16" endianess="big" length="16"/>
+            <Signal name="cell11" offset="32" endianess="big" length="16"/>
+            <Signal name="cell12" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x2A" name="Temp data of measurement board 1" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp1" offset="0" endianess="big" length="16"/>
+            <Signal name="temp2" offset="16" endianess="big" length="16"/>
+            <Signal name="temp3" offset="32" endianess="big" length="16"/>
+            <Signal name="temp4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x2B" name="Cell data of measurement board 1" length="4">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp5" offset="0" endianess="big" length="16"/>
+            <Signal name="vref" offset="16" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x2C" name="Temp data of measurement board 2" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp1" offset="0" endianess="big" length="16"/>
+            <Signal name="temp2" offset="16" endianess="big" length="16"/>
+            <Signal name="temp3" offset="32" endianess="big" length="16"/>
+            <Signal name="temp4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x2D" name="Cell data of measurement board 2" length="4">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp5" offset="0" endianess="big" length="16"/>
+            <Signal name="vref" offset="16" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x2E" name="Temp data of measurement board 3" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp1" offset="0" endianess="big" length="16"/>
+            <Signal name="temp2" offset="16" endianess="big" length="16"/>
+            <Signal name="temp3" offset="32" endianess="big" length="16"/>
+            <Signal name="temp4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x2F" name="Cell data of measurement board 3" length="4">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp5" offset="0" endianess="big" length="16"/>
+            <Signal name="vref" offset="16" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x30" name="Temp data of measurement board 4" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp1" offset="0" endianess="big" length="16"/>
+            <Signal name="temp2" offset="16" endianess="big" length="16"/>
+            <Signal name="temp3" offset="32" endianess="big" length="16"/>
+            <Signal name="temp4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x31" name="Cell data of measurement board 4" length="4">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp5" offset="0" endianess="big" length="16"/>
+            <Signal name="vref" offset="16" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x32" name="Temp data of measurement board 5" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp1" offset="0" endianess="big" length="16"/>
+            <Signal name="temp2" offset="16" endianess="big" length="16"/>
+            <Signal name="temp3" offset="32" endianess="big" length="16"/>
+            <Signal name="temp4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x33" name="Cell data of measurement board 5" length="4">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp5" offset="0" endianess="big" length="16"/>
+            <Signal name="vref" offset="16" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x34" name="Temp data of measurement board 6" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp1" offset="0" endianess="big" length="16"/>
+            <Signal name="temp2" offset="16" endianess="big" length="16"/>
+            <Signal name="temp3" offset="32" endianess="big" length="16"/>
+            <Signal name="temp4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x35" name="Cell data of measurement board 6" length="4">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp5" offset="0" endianess="big" length="16"/>
+            <Signal name="vref" offset="16" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x36" name="Temp data of measurement board 7" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp1" offset="0" endianess="big" length="16"/>
+            <Signal name="temp2" offset="16" endianess="big" length="16"/>
+            <Signal name="temp3" offset="32" endianess="big" length="16"/>
+            <Signal name="temp4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x37" name="Cell data of measurement board 7" length="4">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp5" offset="0" endianess="big" length="16"/>
+            <Signal name="vref" offset="16" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x38" name="Temp data of measurement board 8" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp1" offset="0" endianess="big" length="16"/>
+            <Signal name="temp2" offset="16" endianess="big" length="16"/>
+            <Signal name="temp3" offset="32" endianess="big" length="16"/>
+            <Signal name="temp4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x39" name="Cell data of measurement board 8" length="4">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp5" offset="0" endianess="big" length="16"/>
+            <Signal name="vref" offset="16" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x3A" name="Temp data of measurement board 9" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp1" offset="0" endianess="big" length="16"/>
+            <Signal name="temp2" offset="16" endianess="big" length="16"/>
+            <Signal name="temp3" offset="32" endianess="big" length="16"/>
+            <Signal name="temp4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x3B" name="Cell data of measurement board 9" length="4">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp5" offset="0" endianess="big" length="16"/>
+            <Signal name="vref" offset="16" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x3C" name="Temp data of measurement board 10" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp1" offset="0" endianess="big" length="16"/>
+            <Signal name="temp2" offset="16" endianess="big" length="16"/>
+            <Signal name="temp3" offset="32" endianess="big" length="16"/>
+            <Signal name="temp4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x3D" name="Cell data of measurement board 10" length="4">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp5" offset="0" endianess="big" length="16"/>
+            <Signal name="vref" offset="16" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x3E" name="Temp data of measurement board 11" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp1" offset="0" endianess="big" length="16"/>
+            <Signal name="temp2" offset="16" endianess="big" length="16"/>
+            <Signal name="temp3" offset="32" endianess="big" length="16"/>
+            <Signal name="temp4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x3F" name="Cell data of measurement board 11" length="4">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp5" offset="0" endianess="big" length="16"/>
+            <Signal name="vref" offset="16" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x40" name="Temp data of measurement board 12" length="8">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp1" offset="0" endianess="big" length="16"/>
+            <Signal name="temp2" offset="16" endianess="big" length="16"/>
+            <Signal name="temp3" offset="32" endianess="big" length="16"/>
+            <Signal name="temp4" offset="48" endianess="big" length="16"/>
+        </Message>
+        <Message id="0x41" name="Cell data of measurement board 12" length="4">
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Signal name="temp5" offset="0" endianess="big" length="16"/>
+            <Signal name="vref" offset="16" endianess="big" length="16"/>
+        </Message>
+    </Bus>
+
+</NetworkDefinition>
