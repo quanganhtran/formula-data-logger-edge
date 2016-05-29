@@ -4,7 +4,7 @@
     </Document>
     <Node id="1" name="BMS">
     </Node>
-    <Node id="2" name="Date logger"/>
+    <Node id="2" name="Data logger"/>
 
     <Bus name="BMS Bus">
         <Message id="0x00" name="Data request" length="0" remote="true">

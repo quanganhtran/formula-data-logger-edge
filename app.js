@@ -18,24 +18,29 @@ var db      = new can.DatabaseService(channel, bus);
 channel.start();
 
 // Log any message
-//var message = db.messages['Status data of BMS'];
-//for (var sig in message.signals) {
-//    console.log(message.signals[sig]);
-//    if (message.signals.hasOwnProperty(sig)) {
-//        message.signals[sig].onChange(function(s) {
-//            console.log(s.name + ' ' + s.value);
-//        });
-//    }
-//}
-for (var msg in db.messages) {
-    if (db.messages.hasOwnProperty(msg)) {
-        var message = db.messages[msg];
-        for (var sig in message.signals) {
-            if (message.signals.hasOwnProperty(sig)) {
-                message.signals[sig].onChange(function(s) {
-                    console.log(s.name + ' ' + s.value);
-                });
+initListeners();
+
+function initListeners() {
+    var msgNameList = network.nodes['1'].buses['BMS Bus'].produces.map(function (msg) {
+        return msg.name;
+    });
+    for (var m in msgNameList) {
+        var msg = msgNameList[m];
+        if (db.messages.hasOwnProperty(msg)) {
+            var message = db.messages[msg];
+            for (var sig in message.signals) {
+                if (message.signals.hasOwnProperty(sig)) {
+                    message.signals[sig].onChange(function(s) {
+                        console.log(s.name + ' ' + s.value);
+                    });
+                }
             }
         }
     }
+}
+
+function getNameList(messages) {
+    return messages.map(function (msg) {
+        return msg.name;
+    });
 }
