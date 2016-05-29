@@ -50,13 +50,13 @@ function createVoltage() {
             var signals = [];
             for (var signal = 0; signal < 4; signal++) {
                 signals.push({
-                    name: 'cell' + (msg * 4 + signal + 1),
+                    name: 'board' + (board + 1) + 'cell' + (msg * 4 + signal + 1),
                     offset: Number(signal * 16).toString()
                 });
             }
             msgs.push({
                 id: byteString(VOLTAGE_MSG_ID + board * 3 + msg),
-                name: 'Cell data of measurement board ' + (board + 1),
+                name: 'Cell board ' + (board + 1) + ' part ' + (msg + 1),
                 length: '8',
                 signals: signals
             });
@@ -72,40 +72,41 @@ function createTemp() {
     var temps = [];
     for (var board = 0; board < BOARD_COUNT; board++) {
         var msgs = [];
+        var prefix = 'board' + (board + 1);
         msgs.push({
             id: byteString(TEMP_MSG_ID + board * 2),
-            name: 'Temp data of measurement board ' + (board + 1),
+            name: 'Temp board ' + (board + 1) + ' part 1',
             length: '8',
             signals: [
                 {
-                    name: 'temp1',
+                    name: prefix + 'temp1',
                     offset: '0'
                 },
                 {
-                    name: 'temp2',
+                    name: prefix + 'temp2',
                     offset: '16'
                 },
                 {
-                    name: 'temp3',
+                    name: prefix + 'temp3',
                     offset: '32'
                 },
                 {
-                    name: 'temp4',
+                    name: prefix + 'temp4',
                     offset: '48'
                 }
             ]
         });
         msgs.push({
             id: byteString(TEMP_MSG_ID + board * 2 + 1),
-            name: 'Cell data of measurement board ' + (board + 1),
+            name: 'Temp board ' + (board + 1) + ' part 2',
             length: '4',
             signals: [
                 {
-                    name: 'temp5',
+                    name: prefix + 'temp5',
                     offset: '0'
                 },
                 {
-                    name: 'vref',
+                    name: prefix + 'vref',
                     offset: '16'
                 }
             ]
