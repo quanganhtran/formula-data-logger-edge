@@ -90,3 +90,6 @@ jspm_packages
 *.iml
 out
 gen
+
+# Custom
+backups
