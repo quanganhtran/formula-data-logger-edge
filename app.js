@@ -5,14 +5,15 @@
 const CHANNEL_LINK = process.argv[2] || 'vcan0';
 
 // Dependencies
-var util    = require('util');
-var can     = require('socketcan');
-var fs      = require('fs');
-var app     = require('express')();
-var server  = require('http').Server(app);
-var io      = require('socket.io')(server);
+var util    = require('util'),
+    can     = require('socketcan'),
+    fs      = require('fs'),
+    app     = require('express')(),
+    server  = require('http').Server(app),
+    io      = require('socket.io')(server),
+    swig    = require('swig');
 
-// Initialization
+// CAN initialization
 var network = can.parseNetworkDescription('messages.kcd');
 var bus     = network.buses['BMS Bus'];
 var channel = can.createRawChannel(CHANNEL_LINK);
@@ -21,6 +22,10 @@ var db      = new can.DatabaseService(channel, bus);
 channel.start();
 console.log('CAN channel started');
 
+// Express initialization
+app.engine('html', swig.renderFile);
+
+// Socket IO initialization
 server.listen(3000);
 console.log('Web server started.');
 io.on('connection', function(socket){
