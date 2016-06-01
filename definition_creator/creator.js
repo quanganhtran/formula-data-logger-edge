@@ -2,10 +2,12 @@
  * Created by Anh on 5/29/2016.
  */
 // Configuration constants
-const REQUEST_DATA_MSG_ID = 0,
-      STATUS_MSG_ID       = REQUEST_DATA_MSG_ID + 2,
-      VOLTAGE_MSG_ID      = STATUS_MSG_ID + 4,
-      TEMP_MSG_ID         = VOLTAGE_MSG_ID + 36;
+const CAN_ID_START      = 0,
+      CAN_ID_REQ_STAT   = CAN_ID_START,
+      CAN_ID_STAT       = CAN_ID_START + 1,
+      CAN_ID_STAT_2     = CAN_ID_REQ_STAT + 2,
+      CAN_ID_VOLT       = CAN_ID_START + 6,
+      CAN_ID_TEMP       = CAN_ID_VOLT + 36;
 const BOARD_COUNT = 12;
 
 // Dependencies
@@ -16,13 +18,17 @@ var Mustache = require('mustache');
 // Message definition data
 var bus = {};
 bus.request = {
-    id: byteString(REQUEST_DATA_MSG_ID)
+    id: byteString(CAN_ID_REQ_STAT)
 };
 bus.status = {
-    id: byteString(STATUS_MSG_ID)
+    id: byteString(CAN_ID_STAT),
+    status_flags: createStatusByte(16, ['abs_over', 'over_v', 'fullc_v', 'nomc_v', 'undc_v', 'fullb_v']),
+    ext_status_flags: createStatusByte(24, ['over_t', 'nom_t', 'over_p', 'over_i', 'can_error', 'pec_error']),
+    settings_flags: createStatusByte(32, ['wdog_r', 'mode1', 'mode0', 'raw_temp', 'f1_mctrl', 'f2_mctrl', 'log_data', 'charge']),
+    io_state: createStatusByte(56, ['pe7', 'pe6', 'pe5', 'pe4', 'pa7', 'pa6', 'pa5', 'pa4'])
 };
 bus.status2 = {
-    id: byteString(STATUS_MSG_ID + 1)
+    id: byteString(CAN_ID_STAT_2)
 };
 
 bus.voltages = createVoltage();
@@ -56,7 +62,7 @@ function createVoltage() {
                 });
             }
             msgs.push({
-                id: byteString(VOLTAGE_MSG_ID + board * 3 + msg),
+                id: byteString(CAN_ID_VOLT + board * 3 + msg),
                 name: 'msgCell_board' + (board + 1) + '_part' + (msg + 1),
                 length: '8',
                 signals: signals
@@ -75,7 +81,7 @@ function createTemp() {
         var msgs = [];
         var prefix = 'board' + (board + 1) + '_';
         msgs.push({
-            id: byteString(TEMP_MSG_ID + board * 2),
+            id: byteString(CAN_ID_TEMP + board * 2),
             name: 'msgTemp_board' + (board + 1) + '_part1',
             length: '8',
             signals: [
@@ -98,7 +104,7 @@ function createTemp() {
             ]
         });
         msgs.push({
-            id: byteString(TEMP_MSG_ID + board * 2 + 1),
+            id: byteString(CAN_ID_TEMP + board * 2 + 1),
             name: 'msgTemp_board' + (board + 1) + '_part2',
             length: '4',
             signals: [
@@ -117,4 +123,15 @@ function createTemp() {
         });
     }
     return temps;
+}
+
+function createStatusByte(offset, flags) {
+    return flags.map(function (flag) {
+        var flagObj = {
+            name: flag,
+            offset: offset
+        };
+        offset++;
+        return flagObj;
+    })
 }

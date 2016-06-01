@@ -11,26 +11,60 @@
                 <NodeRef id="2"/>
             </Producer>
         </Message>
-        <Message id="0x02" name="Status data of BMS" length="8">
+        <Message id="0x01" name="Status data of BMS" length="8">
             <Producer>
                 <NodeRef id="1"/>
                 <NodeRef id="2"/>
             </Producer>
-            <Signal name="status_flags" offset="0" length="8"/>
-            <Signal name="ext_status_flags" offset="8" length="8"/>
-            <Signal name="settings_flags" offset="16" length="8"/>
-            <Signal name="fan1_duty_cycle" offset="24" length="8"/>
-            <Signal name="fan2_duty_cycle" offset="32" length="8"/>
-            <Signal name="disch_duty_cycle" offset="40" length="8"/>
+            <Signal name="identifier" offset="0" length="8"/>
+            <Signal name="total_ic" offset="8" length="8"/>
+            
+            <!--status_flags byte-->
+            <Signal name="abs_over" offset="16"/>
+            <Signal name="over_v" offset="17"/>
+            <Signal name="fullc_v" offset="18"/>
+            <Signal name="nomc_v" offset="19"/>
+            <Signal name="undc_v" offset="20"/>
+            <Signal name="fullb_v" offset="21"/>
+
+            <!--ext_status_flags byte-->
+            <Signal name="over_t" offset="24"/>
+            <Signal name="nom_t" offset="25"/>
+            <Signal name="over_p" offset="26"/>
+            <Signal name="over_i" offset="27"/>
+            <Signal name="can_error" offset="28"/>
+            <Signal name="pec_error" offset="29"/>
+
+            <!--settings_flags byte-->
+            <Signal name="wdog_r" offset="32"/>
+            <Signal name="mode1" offset="33"/>
+            <Signal name="mode0" offset="34"/>
+            <Signal name="raw_temp" offset="35"/>
+            <Signal name="f1_mctrl" offset="36"/>
+            <Signal name="f2_mctrl" offset="37"/>
+            <Signal name="log_data" offset="38"/>
+            <Signal name="charge" offset="39"/>
+
+            <Signal name="fan1_dc" offset="40" length="8"/>
+            <Signal name="fan2_dc" offset="48" length="8"/>
+
+            <!--io_state byte-->
+            <Signal name="pe7" offset="56"/>
+            <Signal name="pe6" offset="57"/>
+            <Signal name="pe5" offset="58"/>
+            <Signal name="pe4" offset="59"/>
+            <Signal name="pa7" offset="60"/>
+            <Signal name="pa6" offset="61"/>
+            <Signal name="pa5" offset="62"/>
+            <Signal name="pa4" offset="63"/>
         </Message>
-        <Message id="0x03" name="Status data of BMS second msg" length="8">
+        <Message id="0x02" name="Status data of BMS second msg" length="8">
             <Producer>
                 <NodeRef id="1"/>
                 <NodeRef id="2"/>
             </Producer>
-            <Signal name="sum_of_cells" endianess="big" offset="0"/>
-            <Signal name="current" endianess="big" offset="16"/>
-            <Signal name="power" endianess="big" offset="32"/>
+            <Signal name="sum_of_cells" endianess="big" offset="0" length="16"/>
+            <Signal name="current" endianess="big" offset="16" length="16"/>
         </Message>
         <Message id="0x06" name="msgCell_board1_part1" length="8">
             <Producer>

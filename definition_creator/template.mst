@@ -17,21 +17,39 @@
                 <NodeRef id="1"/>
                 <NodeRef id="2"/>
             </Producer>
-            <Signal name="status_flags" offset="0" length="8"/>
-            <Signal name="ext_status_flags" offset="8" length="8"/>
-            <Signal name="settings_flags" offset="16" length="8"/>
-            <Signal name="fan1_duty_cycle" offset="24" length="8"/>
-            <Signal name="fan2_duty_cycle" offset="32" length="8"/>
-            <Signal name="disch_duty_cycle" offset="40" length="8"/>
+            <Signal name="identifier" offset="0" length="8"/>
+            <Signal name="total_ic" offset="8" length="8"/>
+
+            <!--status_flags byte-->
+            {{#status.status_flags}}
+            <Signal name="{{name}}" offset="{{offset}}"/>
+            {{/status.status_flags}}
+
+            <!--ext_status_flags byte-->
+            {{#status.ext_status_flags}}
+            <Signal name="{{name}}" offset="{{offset}}"/>
+            {{/status.ext_status_flags}}
+
+            <!--settings_flags byte-->
+            {{#status.settings_flags}}
+            <Signal name="{{name}}" offset="{{offset}}"/>
+            {{/status.settings_flags}}
+
+            <Signal name="fan1_dc" offset="40" length="8"/>
+            <Signal name="fan2_dc" offset="48" length="8"/>
+
+            <!--io_state byte-->
+            {{#status.io_state}}
+            <Signal name="{{name}}" offset="{{offset}}"/>
+            {{/status.io_state}}
         </Message>
         <Message id="{{status2.id}}" name="Status data of BMS second msg" length="8">
             <Producer>
                 <NodeRef id="1"/>
                 <NodeRef id="2"/>
             </Producer>
-            <Signal name="sum_of_cells" endianess="big" offset="0"/>
-            <Signal name="current" endianess="big" offset="16"/>
-            <Signal name="power" endianess="big" offset="32"/>
+            <Signal name="sum_of_cells" endianess="big" offset="0" length="16"/>
+            <Signal name="current" endianess="big" offset="16" length="16"/>
         </Message>
         {{#voltages}}{{#messages}}
         <Message id="{{id}}" name="{{name}}" length="{{length}}">

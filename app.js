@@ -27,6 +27,7 @@ console.log('CAN channel started');
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.use('/assets', express.static(__dirname + '/assets'));
+app.use('/assets/uib', express.static(__dirname + '/node_modules/angular-ui-bootstrap'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.get('/', function (req, res) {
     res.render('index', getTemplateData());
@@ -75,10 +76,22 @@ function initListeners() {
                 if (message.signals.hasOwnProperty(sig)) {
                     message.signals[sig].onChange(function(s) {
                         console.log(s.name + ' ' + s.value);
-                        io.emit('data', s);
+                        io.emit('data', {
+                            name: s.name,
+                            value: s.value
+                        });
                     });
                 }
             }
         }
     }
+}
+
+function initController(socket) {
+    var ctrlMsgName = 'Status data of BMS';
+    socket.on('settings', function(signal){
+        console.log('A setting has been received');
+        db.messages[ctrlMsgName].signals[signal.name].update(signal.value);
+        db.send(ctrlMsgName);
+    });
 }
