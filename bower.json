@@ -1,0 +1,24 @@
+{
+  "name": "formula-data-logger",
+  "description": "Data logger for the BMS",
+  "main": "app.js",
+  "authors": [
+    "Anh Do"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/quanganhtran/formula-data-logger-nodejs",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.2.4"
+  }
+}

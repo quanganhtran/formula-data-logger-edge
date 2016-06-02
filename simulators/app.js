@@ -27,7 +27,6 @@ console.log('CAN channel started');
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.use('/assets', express.static(__dirname + '/assets'));
-app.use('/assets/uib', express.static(__dirname + '/node_modules/angular-ui-bootstrap'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.get('/', function (req, res) {
     res.render('index', getTemplateData());
@@ -40,11 +39,9 @@ io.on('connection', function(socket){
     socket.on('disconnect', function(){
         console.log('A client disconnected');
     });
-    var ctrlMsgName = 'Status data of BMS';
-    socket.on('settings', function(signal){
-        console.log('Rx: ' + signal.name + ' ' + signal.value);
-        db.messages[ctrlMsgName].signals[signal.name].update(signal.value);
-        db.send(ctrlMsgName);
+    socket.on('status', function(msg){
+        console.log('An update request has been received');
+        //socket.broadcast.emit('draw', msg);
     });
 });
 console.log('Web server started.');
@@ -78,10 +75,7 @@ function initListeners() {
                 if (message.signals.hasOwnProperty(sig)) {
                     message.signals[sig].onChange(function(s) {
                         console.log(s.name + ' ' + s.value);
-                        io.emit('data', {
-                            name: s.name,
-                            value: s.value
-                        });
+                        io.emit('data', s);
                     });
                 }
             }

@@ -1,13 +1,14 @@
 // Constants
 const HOST = 'http://192.168.0.103:3000';
 
-var app = angular.module('DataLogger', []);
+var app = angular.module('DataLogger', ['ui.bootstrap']);
 
 app.controller('DataLoggerCtrl', function($scope){
     var socket = io(HOST);
 
     var signalData = getTemplateData();
     $scope.cellTables = signalData.cellTables;
+    $scope.tempTables = signalData.tempTables;
     var flatList = signalData.namedList;
 
     socket.on('data', function(sig){
@@ -20,22 +21,43 @@ app.controller('DataLoggerCtrl', function($scope){
     });
 
     function getTemplateData() {
-        var boards = [],
-            namedList = {};
-        for (var i = 0; i < 12; i++) {
-            var board = [];
-            for (var j = 0; j < 12; j++) {
-                var signal = {
+        var cellTables = [],
+            tempTables = [],
+            namedList = {},
+            i, j, board, signal;
+        for (i = 0; i < 12; i++) {
+            board = [];
+            for (j = 0; j < 12; j++) {
+                signal = {
                     name: 'board' + (i + 1) + '_cell' + (j + 1),
                     value: 0
                 };
                 board.push(signal);
                 namedList[signal.name] = signal;
             }
-            boards.push({ cells: board });
+            cellTables.push({ cells: board });
+        }
+        for (i = 0; i < 12; i++) {
+            board = [];
+            for (j = 0; j < 5; j++) {
+                signal = {
+                    name: 'board' + (i + 1) + '_temp' + (j + 1),
+                    value: 0
+                };
+                board.push(signal);
+                namedList[signal.name] = signal;
+            }
+            signal = {
+                name: 'board' + (i + 1) + '_vref',
+                value: 0
+            };
+            board.push(signal);
+            namedList[signal.name] = signal;
+            tempTables.push({ cells: board });
         }
         return {
-            cellTables: boards,
+            cellTables: cellTables,
+            tempTables: tempTables,
             namedList: namedList
         };
     }

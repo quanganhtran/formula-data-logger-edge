@@ -5,9 +5,10 @@
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
 
     <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!--<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>-->
     <script src="/socket.io/socket.io.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
+    <script src="uib/dist/ui-bootstrap.js"></script>
     <style>
         body {background-color: #eee}
     </style>
@@ -17,22 +18,37 @@
 <div class="top col-md-12">
     <button class="btn">Button</button>
 </div>
-<div class="col-md-1" ng-repeat="cellTable in cellTables">
-    <table class="table">
-        <thead>
-        <tr>
-            <td>Cell</td>
-            <td>Voltage</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="cell in cellTable.cells">
-            <td>{{ cell.name }}</td>
-            <td>{{ cell.value }}</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+<uib-tabset>
+    <uib-tab index="0" heading="Overview">
+        <div id="status_flags" class="col-md-6">
+
+        </div>
+    </uib-tab>
+    <uib-tab index="1" heading="Cell voltages">
+        <div class="col-md-2" ng-repeat="cellTable in cellTables">
+            <table class="table">
+                <tbody>
+                <tr ng-repeat="cell in cellTable.cells">
+                    <td>{{ cell.name }}</td>
+                    <td>{{ cell.value }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </uib-tab>
+    <uib-tab index="2" heading="Cell temperature">
+        <div class="col-md-2" ng-repeat="tempTable in tempTables">
+            <table class="table">
+                <tbody>
+                <tr ng-repeat="cell in tempTable.cells">
+                    <td>{{ cell.name }}</td>
+                    <td>{{ cell.value }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </uib-tab>
+</uib-tabset>
 <script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>
