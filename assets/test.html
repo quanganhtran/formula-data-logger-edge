@@ -11,30 +11,51 @@
     <script src="uib/dist/ui-bootstrap.js"></script>
     <style>
         body {background-color: #eee}
+		#aggregation {text-align: right}
     </style>
     <title>Data logger</title>
 </head>
 <body ng-app="DataLogger" ng-controller="DataLoggerCtrl">
 <div class="top col-md-12">
-    <button class="btn">Button</button>
+    <div class="col-md-2">Identifier: {{identifier.value}}</div><div class="col-md-2">Total IC: {{totalIc.value}}</div>
 </div>
 <uib-tabset>
     <uib-tab index="0" heading="Overview">
-        <div id="status_flags" class="col-md-6 well">
+		<div id="aggregation" class="col-md-4 well">
+			<label>
+				Min Cell <input disabled ng-model="agg.cellMin" type="text">
+			</label><br>
+			<label>
+				Max Cell <input disabled ng-model="agg.cellMax" type="text">
+			</label><br>
+			<label>
+				Sum Cell <input disabled ng-model="agg.cellSum" type="number" step="0.01">
+			</label><br>
+			<label>
+				Min Temp <input disabled ng-model="agg.tempMin" type="text">
+			</label><br>
+			<label>
+				Max Temp <input disabled ng-model="agg.tempMax" type="text">
+			</label><br>
+			<label>
+				Avg Temp <input disabled ng-model="agg.tempAvg" type="text">
+			</label>
+		</div>
+        <div id="status_flags" class="col-md-4 well">
             <div ng-repeat="flag in statusFlags">
                 <label>
                     <input disabled ng-checked="{{flag.value}}" type="checkbox"> {{flag.name}}
                 </label>
             </div>
         </div>
-        <div id="ext_status_flags" class="col-md-6 well">
+        <div id="ext_status_flags" class="col-md-4 well">
             <div ng-repeat="flag in extStatusFlags">
                 <label>
                     <input disabled ng-checked="{{flag.value}}" type="checkbox"> {{flag.name}}
                 </label>
             </div>
         </div>
-        <div id="settings_flags" class="col-md-6 well">
+        <div id="settings_flags" class="col-md-4 well">
             <h3>Settings</h3>
             <div ng-repeat="flag in settingsFlags">
                 <label>
@@ -42,10 +63,20 @@
                 </label>
             </div>
             <div>
-                <button class="btn btn-primary" ng-click="updateSettings()">Save</button>
+                <button class="btn btn-primary" ng-click="updateSettings()"
+						uib-popover="Saved!" popover-placement="right" popover-popup-close-delay="500"
+						>Save</button>
             </div>
         </div>
-        <div id="io_state" class="col-md-6 well">
+		<div id="fan_dc" class="col-md-4 well">
+			<label>
+				fan1_dc <input disabled ng-model="fan1Dc.value" type="text">
+			</label><br>
+			<label>
+				fan2_dc <input disabled ng-model="fan2Dc.value" type="text">
+			</label>
+		</div>
+        <div id="io_state" class="col-md-4 well">
             <div ng-repeat="flag in ioState">
                 <label>
                     <input disabled ng-checked="{{flag.value}}" type="checkbox"> {{flag.name}}

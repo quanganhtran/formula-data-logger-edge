@@ -40,7 +40,7 @@ console.log('Web server started.');
 function simulate() {
     io.emit('data', {
         name: 'board' + (Math.floor(Math.random() * 12) + 1) + '_cell' + (Math.floor(Math.random() * 12) + 1),
-        value: (Math.floor(Math.random() * 65536))
+        value: (Math.floor(Math.random() * 655.36) / 100)
     });
     setTimeout(simulate, 500);
 }

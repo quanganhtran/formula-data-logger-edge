@@ -40,7 +40,9 @@ io.on('connection', function(socket){
     socket.on('disconnect', function(){
         console.log('A client disconnected');
     });
-    var ctrlMsgName = 'Status data of BMS';
+	const entryMsgName = 'Data request';
+	db.send(entryMsgName);
+    const ctrlMsgName = 'Status data of BMS';
     socket.on('settings', function(signal){
         console.log('Rx: ' + signal.name + ' ' + signal.value);
         db.messages[ctrlMsgName].signals[signal.name].update(signal.value);
