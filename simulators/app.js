@@ -6,7 +6,6 @@ const CHANNEL_LINK = process.argv[2] || 'vcan0';
 
 // Dependencies
 var util    = require('util'),
-    can     = require('socketcan'),
     fs      = require('fs'),
     express = require('express'),
     app     = express(),
@@ -14,19 +13,13 @@ var util    = require('util'),
     io      = require('socket.io')(server),
     swig    = require('swig');
 
-// CAN initialization
-var network = can.parseNetworkDescription('messages.kcd');
-var bus     = network.buses['BMS Bus'];
-var channel = can.createRawChannel(CHANNEL_LINK);
-var db      = new can.DatabaseService(channel, bus);
-
-channel.start();
 console.log('CAN channel started');
 
 // Express initialization
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.use('/assets', express.static(__dirname + '/assets'));
+app.use('/assets/uib', express.static(__dirname + '/node_modules/angular-ui-bootstrap'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.get('/', function (req, res) {
     res.render('index', getTemplateData());
@@ -34,14 +27,14 @@ app.get('/', function (req, res) {
 
 // Socket IO initialization
 server.listen(3000);
-io.on('connection', function(socket){
+io.on('connection', function (socket) {
     console.log('A client connected');
-    socket.on('disconnect', function(){
+    socket.on('disconnect', function () {
         console.log('A client disconnected');
     });
-    socket.on('status', function(msg){
-        console.log('An update request has been received');
-        //socket.broadcast.emit('draw', msg);
+    var ctrlMsgName = 'Status data of BMS';
+    socket.on('settings', function (signal) {
+        console.log(signal);
     });
 });
 console.log('Web server started.');
@@ -73,9 +66,16 @@ function initListeners() {
             var message = db.messages[msg];
             for (var sig in message.signals) {
                 if (message.signals.hasOwnProperty(sig)) {
-                    message.signals[sig].onChange(function(s) {
+                    var ioEmit = function (s) {
+                        return {
+                            name: s.name,
+                            value: s.value,
+                            of: msg
+                        };
+                    };
+                    message.signals[sig].onChange(function (s) {
                         console.log(s.name + ' ' + s.value);
-                        io.emit('data', s);
+                        io.emit('data', ioEmit(s));
                     });
                 }
             }

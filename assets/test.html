@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!--<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>-->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="uib/dist/ui-bootstrap.js"></script>
+    <style>
+        body {background-color: #eee}
+    </style>
+    <title>Data logger</title>
+</head>
+<body ng-app="DataLogger" ng-controller="DataLoggerCtrl">
+<div class="top col-md-12">
+    <button class="btn">Button</button>
+</div>
+<uib-tabset>
+    <uib-tab index="0" heading="Overview">
+        <div id="status_flags" class="col-md-6 well">
+            <div ng-repeat="flag in statusFlags">
+                <label>
+                    <input disabled ng-checked="{{flag.value}}" type="checkbox"> {{flag.name}}
+                </label>
+            </div>
+        </div>
+        <div id="ext_status_flags" class="col-md-6 well">
+            <div ng-repeat="flag in extStatusFlags">
+                <label>
+                    <input disabled ng-checked="{{flag.value}}" type="checkbox"> {{flag.name}}
+                </label>
+            </div>
+        </div>
+        <div id="settings_flags" class="col-md-6 well">
+            <h3>Settings</h3>
+            <div ng-repeat="flag in settingsFlags">
+                <label>
+                    <input ng-checked="{{flag.value}}" ng-model="flag.value" type="checkbox"> {{flag.name}}
+                </label>
+            </div>
+            <div>
+                <button class="btn btn-primary" ng-click="updateSettings()">Save</button>
+            </div>
+        </div>
+        <div id="io_state" class="col-md-6 well">
+            <div ng-repeat="flag in ioState">
+                <label>
+                    <input disabled ng-checked="{{flag.value}}" type="checkbox"> {{flag.name}}
+                </label>
+            </div>
+        </div>
+    </uib-tab>
+    <uib-tab index="1" heading="Cell voltages">
+        <div class="col-md-2" ng-repeat="cellTable in cellTables">
+            <table class="table">
+                <tbody>
+                <tr ng-repeat="cell in cellTable.cells">
+                    <td>{{ cell.name }}</td>
+                    <td>{{ cell.value }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </uib-tab>
+    <uib-tab index="2" heading="Cell temperature">
+        <div class="col-md-2" ng-repeat="tempTable in tempTables">
+            <table class="table">
+                <tbody>
+                <tr ng-repeat="cell in tempTable.cells">
+                    <td>{{ cell.name }}</td>
+                    <td>{{ cell.value }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </uib-tab>
+</uib-tabset>
+<script src="js/test.js" type="text/javascript"></script>
+</body>
+</html>

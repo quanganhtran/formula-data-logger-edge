@@ -76,12 +76,16 @@ function initListeners() {
             var message = db.messages[msg];
             for (var sig in message.signals) {
                 if (message.signals.hasOwnProperty(sig)) {
-                    message.signals[sig].onChange(function(s) {
-                        console.log(s.name + ' ' + s.value);
-                        io.emit('data', {
+                    var ioEmit = function (s) {
+                        return {
                             name: s.name,
-                            value: s.value
-                        });
+                            value: s.value,
+                            of: msg
+                        };
+                    };
+                    message.signals[sig].onChange(function (s) {
+                        console.log(s.name + ' ' + s.value);
+                        io.emit('data', ioEmit(s));
                     });
                 }
             }
