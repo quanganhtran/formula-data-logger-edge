@@ -84,11 +84,11 @@ app.controller('DataLoggerCtrl', function ($scope){
 			flatTemps = [],
             namedList = {},
             i, j, board, signal;
-        for (i = 0; i < 12; i++) {
+        for (i = 0; i < 6; i++) {
             board = [];
-            for (j = 0; j < 12; j++) {
+            for (j = 0; j < 24; j++) {
                 signal = {
-                    name: 'board' + (i + 1) + '_cell' + (j + 1),
+                    name: 'board' + ((i*2 + Math.floor(j/12)) + 1) + '_cell' + (j%12 + 1),
                     value: 0
                 };
                 board.push(signal);
@@ -97,24 +97,18 @@ app.controller('DataLoggerCtrl', function ($scope){
             }
             cellTables.push({ cells: board });
         }
-        for (i = 0; i < 12; i++) {
+		var _temps = ['_temp1', '_temp2', '_temp3', '_temp4', '_temp5'];
+        for (i = 0; i < 6; i++) {
             board = [];
-            for (j = 0; j < 5; j++) {
+            for (j = 0; j < 10; j++) {
                 signal = {
-                    name: 'board' + (i + 1) + '_temp' + (j + 1),
+                    name: 'board' + ((i*2 + Math.floor(j/5)) + 1) + '_temp' + (j%5 + 1),
                     value: 0
                 };
                 board.push(signal);
 				flatTemps.push(signal);
                 namedList[signal.name] = signal;
             }
-            signal = {
-                name: 'board' + (i + 1) + '_vref',
-                value: 0
-            };
-            board.push(signal);
-			flatTemps.push(signal);
-            namedList[signal.name] = signal;
             tempTables.push({ cells: board });
         }
         return {
