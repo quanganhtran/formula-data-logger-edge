@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Data logger</title>
+
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+</head>
+<body>
+    <div class="top col-md-12">
+
+    </div>
+{% for cellTable in cellTables %}
+    <div class="col-md-1">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Cell</td>
+                    <td>Voltage</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cell in cells %}
+                <tr id="{{ cell.name }}">
+                    <td>{{ cell.name }}</td>
+                    <td></td>
+                </tr>
+                {% endfor cells %}
+            </tbody>
+        </table>
+    </div>
+{% endfor cellTables %}
+</body>
+</html>
