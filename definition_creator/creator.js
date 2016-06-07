@@ -2,7 +2,7 @@
  * Created by Anh on 5/29/2016.
  */
 // Configuration constants
-const CAN_ID_START      = 0,
+const CAN_ID_START      = 1900,
       CAN_ID_REQ_STAT   = CAN_ID_START,
       CAN_ID_STAT       = CAN_ID_START + 1,
       CAN_ID_STAT_2     = CAN_ID_REQ_STAT + 2,
@@ -22,10 +22,10 @@ bus.request = {
 };
 bus.status = {
     id: byteString(CAN_ID_STAT),
-    status_flags: createStatusByte(16, ['abs_over', 'over_v', 'fullc_v', 'nomc_v', 'undc_v', 'fullb_v']),
-    ext_status_flags: createStatusByte(24, ['over_t', 'nom_t', 'over_p', 'over_i', 'can_error', 'pec_error']),
-    settings_flags: createStatusByte(32, ['wdog_r', 'mode1', 'mode0', 'raw_temp', 'f1_mctrl', 'f2_mctrl', 'log_data', 'charge']),
-    io_state: createStatusByte(56, ['pe7', 'pe6', 'pe5', 'pe4', 'pa7', 'pa6', 'pa5', 'pa4'])
+    status_flags: createStatusByte(18, ['fullb_v', 'undc_v', 'nomc_v', 'fullc_v', 'over_v', 'abs_over']),
+    ext_status_flags: createStatusByte(26, ['pec_error', 'can_error', 'over_i', 'over_p', 'nom_t', 'over_t']),
+    settings_flags: createStatusByte(32, ['charge', 'log_data', 'f2_mctrl', 'f1_mctrl', 'raw_temp', 'mode0', 'mode1', 'wdog_r']),
+    io_state: createStatusByte(56, ['pa4', 'pa5', 'pa6', 'pa7', 'pe4', 'pe5', 'pe6', 'pe7'])
 };
 bus.status2 = {
     id: byteString(CAN_ID_STAT_2)

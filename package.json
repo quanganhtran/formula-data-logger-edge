@@ -4,6 +4,7 @@
   "description": "Data logger for the BMS",
   "main": "app.js",
   "dependencies": {
+    "angular-ui-bootstrap": "^1.3.3",
     "bower": "^1.7.9",
     "express": "^4.13.4",
     "mustache": "^2.2.1",

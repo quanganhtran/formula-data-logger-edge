@@ -40,10 +40,16 @@ io.on('connection', function(socket){
     socket.on('disconnect', function(){
         console.log('A client disconnected');
     });
+	//const entryMsgName = 'Data request';
+	setInterval(function() {
+		channel.send({ id: 1900, rtr: true, data: new Buffer(0) });
+	}, 500);
     var ctrlMsgName = 'Status data of BMS';
-    socket.on('settings', function(signal){
-        console.log('Rx: ' + signal.name + ' ' + signal.value);
-        db.messages[ctrlMsgName].signals[signal.name].update(signal.value);
+    socket.on('settings', function(signals){
+	    for (signal in signals) {
+	        console.log('from Web: ' + signals[signal].name + ' ' + signals[signal].value);
+        	db.messages[ctrlMsgName].signals[signals[signal].name].update(signals[signal].value);
+	    }
         db.send(ctrlMsgName);
     });
 });
@@ -77,7 +83,7 @@ function initListeners() {
             for (var sig in message.signals) {
                 if (message.signals.hasOwnProperty(sig)) {
                     message.signals[sig].onChange(function(s) {
-                        console.log(s.name + ' ' + s.value);
+                        console.log('to BMS: ' + s.name + ' ' + s.value);
                         io.emit('data', {
                             name: s.name,
                             value: s.value
