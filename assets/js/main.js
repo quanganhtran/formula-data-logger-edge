@@ -1,5 +1,5 @@
 // Constants
-const HOST = 'http://192.168.0.103:3000';
+const HOST = 'http://192.168.0.101:3000';
 
 var app = angular.module('DataLogger', ['ui.bootstrap']);
 
@@ -78,7 +78,7 @@ app.controller('DataLoggerCtrl', function ($scope){
     function aggregateInterval() {
         $scope.agg.cellMin = aggregation.min(flatCells).toFixed(2);
         $scope.agg.cellMax = aggregation.max(flatCells).toFixed(2);
-        $scope.agg.cellSum = aggregation.sum(flatCells);
+        $scope.agg.cellSum = aggregation.sum(flatCells).toFixed(2);
         $scope.agg.tempMin = aggregation.min(flatTemps).toFixed(2);
         $scope.agg.tempMax = aggregation.max(flatTemps).toFixed(2);
         $scope.agg.tempAvg = (aggregation.sum(flatTemps) / tempCount).toFixed(2);
