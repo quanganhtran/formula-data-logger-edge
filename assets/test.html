@@ -11,7 +11,10 @@
     <script src="uib/dist/ui-bootstrap.js"></script>
     <style>
         body {background-color: #eee}
-		#aggregation {text-align: right}
+        #aggregation {text-align: right}
+        #fan_dc input[type="number"] {
+            width: 8em
+        }
     </style>
     <title>Data logger</title>
 </head>
@@ -21,26 +24,26 @@
 </div>
 <uib-tabset>
     <uib-tab index="0" heading="Overview">
-		<div id="aggregation" class="col-md-4 well">
-			<label>
-				Min Cell <input disabled ng-model="agg.cellMin" type="text">
-			</label><br>
-			<label>
-				Max Cell <input disabled ng-model="agg.cellMax" type="text">
-			</label><br>
-			<label>
-				Sum Cell <input disabled ng-model="agg.cellSum" type="number" step="0.01">
-			</label><br>
-			<label>
-				Min Temp <input disabled ng-model="agg.tempMin" type="text">
-			</label><br>
-			<label>
-				Max Temp <input disabled ng-model="agg.tempMax" type="text">
-			</label><br>
-			<label>
-				Avg Temp <input disabled ng-model="agg.tempAvg" type="text">
-			</label>
-		</div>
+        <div id="aggregation" class="col-md-4 well">
+            <label>
+                Min Cell <input disabled ng-model="agg.cellMin" type="text">
+            </label><br>
+            <label>
+                Max Cell <input disabled ng-model="agg.cellMax" type="text">
+            </label><br>
+            <label>
+                Sum Cell <input disabled ng-model="agg.cellSum" type="text">
+            </label><br>
+            <label>
+                Min Temp <input disabled ng-model="agg.tempMin" type="text">
+            </label><br>
+            <label>
+                Max Temp <input disabled ng-model="agg.tempMax" type="text">
+            </label><br>
+            <label>
+                Avg Temp <input disabled ng-model="agg.tempAvg" type="text">
+            </label>
+        </div>
         <div id="status_flags" class="col-md-4 well">
             <div ng-repeat="flag in statusFlags">
                 <label>
@@ -64,19 +67,27 @@
             </div>
             <div>
                 <button class="btn btn-primary" ng-click="updateSettings()"
-						uib-popover="Saved!" popover-placement="right" popover-popup-close-delay="500"
-						>Save</button>
-		{{settingsFlags}}
+                        uib-popover="Saved!" popover-placement="right" popover-popup-close-delay="500"
+                >Save</button>
+                {{settingsFlags}}
             </div>
         </div>
-		<div id="fan_dc" class="col-md-4 well">
-			<label>
-				fan1_dc <input disabled ng-model="fan1Dc.value" type="text">
-			</label><br>
-			<label>
-				fan2_dc <input disabled ng-model="fan2Dc.value" type="text">
-			</label>
-		</div>
+        <div id="fan_dc" class="col-md-4 well">
+            <label>
+                fan1_dc <input disabled ng-bind="fan1Dc.value" type="number">
+                Set to: <input ng-model="fan1Dc.newValue" type="number">
+            </label>
+            <button class="btn btn-primary" ng-click="updateFanDc(1)"
+                    uib-popover="Updated!" popover-placement="right" popover-popup-close-delay="500"
+            >Update</button><br>
+            <label>
+                fan2_dc <input disabled ng-bind="fan2Dc.value" type="number">
+                Set to: <input ng-model="fan2Dc.newValue" type="number">
+            </label>
+            <button class="btn btn-primary" ng-click="updateFanDc(2)"
+                    uib-popover="Updated!" popover-placement="right" popover-popup-close-delay="500"
+            >Update</button>
+        </div>
         <div id="io_state" class="col-md-4 well">
             <div ng-repeat="flag in ioState">
                 <label>
@@ -87,8 +98,26 @@
     </uib-tab>
     <uib-tab index="1" heading="Cell voltages">
         <div class="col-md-2" ng-repeat="cellTable in cellTables">
-            <table class="table">
+            <table class="table table-striped table-responsive table-condensed">
+                <thead>
+                <tr>
+                    <th>Cell</th>
+                    <th>Voltage</th>
+                </tr>
+                </thead>
                 <tbody>
+                <tr>
+                    <th>Min</th>
+                    <th>{{ cellTable.agg.min }}</th>
+                </tr>
+                <tr>
+                    <th>Max</th>
+                    <th>{{ cellTable.agg.max }}</th>
+                </tr>
+                <tr>
+                    <th>Sum</th>
+                    <th>{{ cellTable.agg.sum }}</th>
+                </tr>
                 <tr ng-repeat="cell in cellTable.cells">
                     <td>{{ cell.name }}</td>
                     <td>{{ cell.value }}</td>
