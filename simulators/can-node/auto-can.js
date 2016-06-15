@@ -6,7 +6,7 @@ var util = require('util');
 var fs = require('fs');
 
 // Parse database
-var network = can.parseNetworkDescription("messages.kcd");
+var network = can.parseNetworkDescription("../../messages.kcd");
 
 var node = network.nodes['1'];
 

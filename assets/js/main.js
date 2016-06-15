@@ -1,5 +1,5 @@
 // Constants
-const HOST = 'http://192.168.0.101:3000';
+const HOST = 'http://192.168.0.110:3000';
 
 var app = angular.module('DataLogger', ['ui.bootstrap']);
 

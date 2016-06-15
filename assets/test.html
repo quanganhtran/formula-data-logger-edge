@@ -129,7 +129,25 @@
     <uib-tab index="2" heading="Cell temperature">
         <div class="col-md-2" ng-repeat="tempTable in tempTables">
             <table class="table">
+                <thead>
+                <tr>
+                    <th>Cell</th>
+                    <th>Temperature</th>
+                </tr>
+                </thead>
                 <tbody>
+                <tr>
+                    <th>Min</th>
+                    <th>{{ tempTable.agg.min }}</th>
+                </tr>
+                <tr>
+                    <th>Max</th>
+                    <th>{{ tempTable.agg.max }}</th>
+                </tr>
+                <tr>
+                    <th>Avg</th>
+                    <th>{{ tempTable.agg.avg }}</th>
+                </tr>
                 <tr ng-repeat="cell in tempTable.cells">
                     <td>{{ cell.name }}</td>
                     <td>{{ cell.value }}</td>

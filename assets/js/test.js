@@ -1,5 +1,5 @@
 // Constants
-const HOST = 'http://localhost:3000';
+const HOST = 'http://192.168.0.110:3000';
 
 var app = angular.module('DataLogger', ['ui.bootstrap']);
 
@@ -84,12 +84,21 @@ app.controller('DataLoggerCtrl', function ($scope){
                 sum: aggregation.sum(ctb.cells).toFixed(2)
             };
         });
+        var ttbs = $scope.tempTables;
+        ttbs.forEach(function (ttb) {
+            ttb.agg = {
+                min: aggregation.min(ttb.cells).toFixed(2),
+                max: aggregation.max(ttb.cells).toFixed(2),
+                sum: aggregation.sum(ttb.cells)
+            };
+            ttb.agg.avg = (ttb.agg.sum / ttb.cells.length).toFixed(2);
+        });
         // $scope.agg.cellMin = aggregation.min(flatCells).toFixed(2);
         // $scope.agg.cellMax = aggregation.max(flatCells).toFixed(2);
         // $scope.agg.cellSum = aggregation.sum(flatCells).toFixed(2);
-        $scope.agg.tempMin = aggregation.min(flatTemps).toFixed(2);
-        $scope.agg.tempMax = aggregation.max(flatTemps).toFixed(2);
-        $scope.agg.tempAvg = (aggregation.sum(flatTemps) / tempCount).toFixed(2);
+        // $scope.agg.tempMin = aggregation.min(flatTemps).toFixed(2);
+        // $scope.agg.tempMax = aggregation.max(flatTemps).toFixed(2);
+        // $scope.agg.tempAvg = (aggregation.sum(flatTemps) / tempCount).toFixed(2);
         setTimeout(aggregateInterval, 500);
     }
     aggregateInterval();
