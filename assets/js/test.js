@@ -57,6 +57,12 @@ app.controller('DataLoggerCtrl', ['$scope', 'uibButtonConfig', function ($scope,
         delete fan.newValue;
     };
 
+    $scope.updateIoState = function () {
+        console.log('Sending to the server...');
+        console.log($scope.ioState);
+        socket.emit('settings', $scope.ioState);
+    };
+
     var aggregation = {
         min: function (signals) {
             return signals.reduce(function (value, b) {

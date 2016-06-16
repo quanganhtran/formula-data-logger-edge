@@ -94,10 +94,21 @@
             >Update</button>
         </div>
         <div id="io_state" class="col-md-4 well">
+            <!--<div ng-repeat="flag in ioState">-->
+                <!--<label>-->
+                    <!--<input disabled ng-checked="{{flag.value}}" type="checkbox"> {{flag.name}}-->
+                <!--</label>-->
+            <!--</div>-->
             <div ng-repeat="flag in ioState">
-                <label>
-                    <input disabled ng-checked="{{flag.value}}" type="checkbox"> {{flag.name}}
+                <label class="btn btn-default" ng-model="flag.value" uib-btn-checkbox>
+                    {{flag.name}}
                 </label>
+            </div>
+            <div>
+                <button class="btn btn-primary" ng-click="updateIoState()"
+                        uib-popover="Saved!" popover-placement="right" popover-popup-close-delay="500"
+                >Save</button>
+                {{ioState}}
             </div>
         </div>
     </uib-tab>
