@@ -41,11 +41,15 @@ io.on('connection', function(socket){
         console.log('A client disconnected');
     });
 	//const entryMsgName = 'Data request';
-	setInterval(function() {
-		channel.send({ id: 1900, rtr: true, data: new Buffer(0) });
-	}, 500);
+	//setInterval(function() {
+	//	channel.send({ id: 1900, rtr: true, data: new Buffer(0) });
+	//}, 500);
+    socket.on('request', function () {
+        console.log('Web to BMS: Requesting info');
+        channel.send({ id: 1900, rtr: true, data: new Buffer(0) });
+    });
     var ctrlMsgName = 'Status data of BMS';
-    socket.on('settings', function(signals){
+    socket.on('settings', function (signals) {
 	    for (signal in signals) {
 	        console.log('from Web: ' + signals[signal].name + ' ' + signals[signal].value);
         	db.messages[ctrlMsgName].signals[signals[signal].name].update(signals[signal].value);

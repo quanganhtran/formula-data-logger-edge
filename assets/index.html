@@ -2,16 +2,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <!--<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">-->
+    <link rel="stylesheet" href="css/bootstrap_dark/bootstrap.css">
 
     <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <!--<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>-->
     <script src="/socket.io/socket.io.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
     <script src="uib/dist/ui-bootstrap.js"></script>
     <style>
-        body {background-color: #eee}
-        #aggregation {text-align: right}
+        /*body {background-color: #eee}*/
+        #aggregation .panel-body {text-align: right}
         #fan_dc input[type="number"] {
             width: 8em
         }
@@ -24,75 +24,110 @@
 </div>
 <uib-tabset>
     <uib-tab index="0" heading="Overview">
-        <div id="aggregation" class="col-md-4 well">
-            <label>
-                Min Cell <input disabled ng-model="agg.cellMin" type="text">
-            </label><br>
-            <label>
-                Max Cell <input disabled ng-model="agg.cellMax" type="text">
-            </label><br>
-            <label>
-                Sum Cell <input disabled ng-model="agg.cellSum" type="text">
-            </label><br>
-            <label>
-                Min Temp <input disabled ng-model="agg.tempMin" type="text">
-            </label><br>
-            <label>
-                Max Temp <input disabled ng-model="agg.tempMax" type="text">
-            </label><br>
-            <label>
-                Avg Temp <input disabled ng-model="agg.tempAvg" type="text">
-            </label>
-        </div>
-        <div id="status_flags" class="col-md-4 well">
-            <div ng-repeat="flag in statusFlags">
-                <label>
-                    <input disabled ng-checked="{{flag.value}}" type="checkbox"> {{flag.name}}
-                </label>
+        <div class="col-md-4">
+            <div id="main-control" class="panel panel-default">
+                <div class="panel-heading">Main Control</div>
+                <div class="panel-body">
+                    <button class="btn btn-primary" ng-click="requestInfo()">Request BMS</button>
+                </div>
+            </div>
+            <div id="settings_flags" class="panel panel-default">
+                <div class="panel-heading">Settings</div>
+                <div class="panel-body">
+                    <div ng-repeat="flag in settingsFlags">
+                        <label class="btn btn-default" ng-model="flag.value" uib-btn-checkbox>
+                            {{flag.name}}
+                        </label>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" ng-click="updateSettings()"
+                                uib-popover="Saved!" popover-placement="right" popover-popup-close-delay="500"
+                        >Save</button><br>
+                        {{settingsFlags}}
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="ext_status_flags" class="col-md-4 well">
-            <div ng-repeat="flag in extStatusFlags">
-                <label>
-                    <input disabled ng-checked="{{flag.value}}" type="checkbox"> {{flag.name}}
-                </label>
+        <div class="col-md-4">
+            <div id="fan_dc" class="panel panel-default">
+                <div class="panel-heading">fan_dc</div>
+                <div class="panel-body">
+                    <label>
+                        fan1_dc <input disabled ng-bind="fan1Dc.value" type="number">
+                        Set to: <input ng-model="fan1Dc.newValue" type="number">
+                    </label>
+                    <button class="btn btn-primary" ng-click="updateFanDc(1)"
+                            uib-popover="Updated!" popover-placement="right" popover-popup-close-delay="500"
+                    >Update</button><br>
+                    <label>
+                        fan2_dc <input disabled ng-bind="fan2Dc.value" type="number">
+                        Set to: <input ng-model="fan2Dc.newValue" type="number">
+                    </label>
+                    <button class="btn btn-primary" ng-click="updateFanDc(2)"
+                            uib-popover="Updated!" popover-placement="right" popover-popup-close-delay="500"
+                    >Update</button>
+                </div>
+            </div>
+            <div id="io_state" class="panel panel-default">
+                <div class="panel-heading">io_state</div>
+                <div class="panel-body">
+                    <div ng-repeat="flag in ioState">
+                        <label class="btn btn-default" ng-model="flag.value" uib-btn-checkbox>
+                            {{flag.name}}
+                        </label>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" ng-click="updateIoState()"
+                                uib-popover="Saved!" popover-placement="right" popover-popup-close-delay="500"
+                        >Save</button><br>
+                        {{ioState}}
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="settings_flags" class="col-md-4 well">
-            <h3>Settings</h3>
-            <div ng-repeat="flag in settingsFlags">
-                <label>
-                    <input ng-checked="{{flag.value}}" ng-model="flag.value" type="checkbox"> {{flag.name}}
-                </label>
+        <div class="col-md-4">
+            <div id="aggregation" class="panel panel-default">
+                <div class="panel-heading">Aggregation</div>
+                <div class="panel-body">
+                    <label>
+                        Min Cell <input disabled ng-model="agg.cellMin" type="text">
+                    </label><br>
+                    <label>
+                        Max Cell <input disabled ng-model="agg.cellMax" type="text">
+                    </label><br>
+                    <label>
+                        Sum Cell <input disabled ng-model="agg.cellSum" type="text">
+                    </label><br>
+                    <label>
+                        Min Temp <input disabled ng-model="agg.tempMin" type="text">
+                    </label><br>
+                    <label>
+                        Max Temp <input disabled ng-model="agg.tempMax" type="text">
+                    </label><br>
+                    <label>
+                        Avg Temp <input disabled ng-model="agg.tempAvg" type="text">
+                    </label>
+                </div>
             </div>
-            <div>
-                <button class="btn btn-primary" ng-click="updateSettings()"
-                        uib-popover="Saved!" popover-placement="right" popover-popup-close-delay="500"
-                >Save</button>
-                {{settingsFlags}}
+            <div id="status_flags" class="panel panel-default">
+                <div class="panel-heading">Status Flags</div>
+                <div class="panel-body">
+                    <div ng-repeat="flag in statusFlags">
+                        <label>
+                            <input disabled ng-checked="{{flag.value}}" type="checkbox"> {{flag.name}}
+                        </label>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div id="fan_dc" class="col-md-4 well">
-            <label>
-                fan1_dc <input disabled ng-bind="fan1Dc.value" type="number">
-                Set to: <input ng-model="fan1Dc.newValue" type="number">
-            </label>
-            <button class="btn btn-primary" ng-click="updateFanDc(1)"
-                    uib-popover="Updated!" popover-placement="right" popover-popup-close-delay="500"
-            >Update</button><br>
-            <label>
-                fan2_dc <input disabled ng-bind="fan2Dc.value" type="number">
-                Set to: <input ng-model="fan2Dc.newValue" type="number">
-            </label>
-            <button class="btn btn-primary" ng-click="updateFanDc(2)"
-                    uib-popover="Updated!" popover-placement="right" popover-popup-close-delay="500"
-            >Update</button>
-        </div>
-        <div id="io_state" class="col-md-4 well">
-            <div ng-repeat="flag in ioState">
-                <label>
-                    <input disabled ng-checked="{{flag.value}}" type="checkbox"> {{flag.name}}
-                </label>
+            <div id="ext_status_flags" class="panel panel-default">
+                <div class="panel-heading">Extended Status Flags</div>
+                <div class="panel-body">
+                    <div ng-repeat="flag in extStatusFlags">
+                        <label>
+                            <input disabled ng-checked="{{flag.value}}" type="checkbox"> {{flag.name}}
+                        </label>
+                    </div>
+                </div>
             </div>
         </div>
     </uib-tab>
@@ -106,6 +141,18 @@
                 </tr>
                 </thead>
                 <tbody>
+                <tr>
+                    <th>Min</th>
+                    <th>{{ cellTable.agg.min }}</th>
+                </tr>
+                <tr>
+                    <th>Max</th>
+                    <th>{{ cellTable.agg.max }}</th>
+                </tr>
+                <tr>
+                    <th>Sum</th>
+                    <th>{{ cellTable.agg.sum }}</th>
+                </tr>
                 <tr ng-repeat="cell in cellTable.cells">
                     <td>{{ cell.name }}</td>
                     <td>{{ cell.value }}</td>
@@ -116,8 +163,26 @@
     </uib-tab>
     <uib-tab index="2" heading="Cell temperature">
         <div class="col-md-2" ng-repeat="tempTable in tempTables">
-            <table class="table">
+            <table class="table table-striped table-responsive">
+                <thead>
+                <tr>
+                    <th>Cell</th>
+                    <th>Temperature</th>
+                </tr>
+                </thead>
                 <tbody>
+                <tr>
+                    <th>Min</th>
+                    <th>{{ tempTable.agg.min }}</th>
+                </tr>
+                <tr>
+                    <th>Max</th>
+                    <th>{{ tempTable.agg.max }}</th>
+                </tr>
+                <tr>
+                    <th>Avg</th>
+                    <th>{{ tempTable.agg.avg }}</th>
+                </tr>
                 <tr ng-repeat="cell in tempTable.cells">
                     <td>{{ cell.name }}</td>
                     <td>{{ cell.value }}</td>

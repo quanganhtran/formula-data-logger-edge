@@ -9,7 +9,9 @@ app.config(function ($uibTooltipProvider) {
     })
 });
 
-app.controller('DataLoggerCtrl', function ($scope){
+app.controller('DataLoggerCtrl', ['$scope', 'uibButtonConfig', function ($scope, uibButtonConfig){
+    uibButtonConfig.activeClass = 'btn-success';
+
     var socket = io(HOST);
 
     var signalData = getTemplateData();
@@ -40,6 +42,11 @@ app.controller('DataLoggerCtrl', function ($scope){
         }
     });
 
+    $scope.requestInfo = function () {
+        console.log('Requesting info from BMS...');
+        socket.emit('request');
+    };
+
     $scope.updateSettings = function () {
         console.log('Sending to the server...');
         console.log($scope.settingsFlags);
@@ -53,6 +60,12 @@ app.controller('DataLoggerCtrl', function ($scope){
         console.log(fan);
         socket.emit('settings', [{name: fan.name, value: fan.newValue}]);
         delete fan.newValue;
+    };
+
+    $scope.updateIoState = function () {
+        console.log('Sending to the server...');
+        console.log($scope.ioState);
+        socket.emit('settings', $scope.ioState);
     };
 
     var aggregation = {
@@ -76,12 +89,29 @@ app.controller('DataLoggerCtrl', function ($scope){
     var tempCount = flatTemps.length;
 
     function aggregateInterval() {
-        $scope.agg.cellMin = aggregation.min(flatCells).toFixed(2);
-        $scope.agg.cellMax = aggregation.max(flatCells).toFixed(2);
-        $scope.agg.cellSum = aggregation.sum(flatCells).toFixed(2);
-        $scope.agg.tempMin = aggregation.min(flatTemps).toFixed(2);
-        $scope.agg.tempMax = aggregation.max(flatTemps).toFixed(2);
-        $scope.agg.tempAvg = (aggregation.sum(flatTemps) / tempCount).toFixed(2);
+        var ctbs = $scope.cellTables;
+        ctbs.forEach(function (ctb) {
+            ctb.agg = {
+                min: aggregation.min(ctb.cells),
+                max: aggregation.max(ctb.cells),
+                sum: aggregation.sum(ctb.cells)
+            };
+        });
+        var ttbs = $scope.tempTables;
+        ttbs.forEach(function (ttb) {
+            ttb.agg = {
+                min: aggregation.min(ttb.cells),
+                max: aggregation.max(ttb.cells),
+                sum: aggregation.sum(ttb.cells)
+            };
+            ttb.agg.avg = (ttb.agg.sum / ttb.cells.length);
+        });
+        $scope.agg.cellMin = aggregation.min(ctbs.map(ctb => ({ value: ctb.agg.min })));
+        $scope.agg.cellMax = aggregation.max(ctbs.map(ctb => ({ value: ctb.agg.max })));
+        $scope.agg.cellSum = aggregation.sum(ctbs.map(ctb => ({ value: ctb.agg.sum })));
+        $scope.agg.tempMin = aggregation.min(ttbs.map(ttb => ({ value: ttb.agg.min })));
+        $scope.agg.tempMax = aggregation.max(ttbs.map(ttb => ({ value: ttb.agg.max })));
+        $scope.agg.tempAvg = aggregation.sum(ttbs.map(ttb => ({ value: ttb.agg.sum }))) / tempCount;
         setTimeout(aggregateInterval, 500);
     }
     aggregateInterval();
@@ -130,7 +160,7 @@ app.controller('DataLoggerCtrl', function ($scope){
     }
 
     function buildFlagsAndAttach(flags, attachTo) {
-        var obj = flags.map(function (flag) {
+        return flags.map(function (flag) {
             var flagObj = {
                 name: flag,
                 value: true
@@ -138,6 +168,5 @@ app.controller('DataLoggerCtrl', function ($scope){
             attachTo[flag] = flagObj;
             return flagObj;
         });
-        return obj;
     }
-});
+}]);
