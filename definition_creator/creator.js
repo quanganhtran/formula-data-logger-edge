@@ -23,7 +23,7 @@ bus.request = {
 bus.status = {
     id: byteString(CAN_ID_STAT),
     status_flags: createStatusByte(18, ['fullb_v', 'undc_v', 'nomc_v', 'fullc_v', 'over_v', 'abs_over']),
-    ext_status_flags: createStatusByte(26, ['pec_error', 'can_error', 'over_i', 'over_p', 'nom_t', 'over_t']),
+    ext_status_flags: createStatusByte(28, ['over_i', 'over_p', 'nom_t', 'over_t']),
     settings_flags: createStatusByte(32, ['charge', 'log_data', 'f2_mctrl', 'f1_mctrl', 'raw_temp', 'mode0', 'mode1', 'wdog_r']),
     io_state: createStatusByte(56, ['pa4', 'pa5', 'pa6', 'pa7', 'pe4', 'pe5', 'pe6', 'pe7'])
 };

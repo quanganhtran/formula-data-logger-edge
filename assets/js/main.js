@@ -28,10 +28,12 @@ app.controller('DataLoggerCtrl', ['$scope', 'uibButtonConfig', function ($scope,
     $scope.extStatusFlags = buildFlagsAndAttach(['pec_error', 'can_error', 'over_i', 'over_p', 'nom_t', 'over_t'], flatList);
     $scope.settingsFlags = buildFlagsAndAttach(['charge', 'log_data', 'f2_mctrl', 'f1_mctrl', 'raw_temp', 'mode0', 'mode1', 'wdog_r'], flatList);
     $scope.ioState = buildFlagsAndAttach(['pa4', 'pa5', 'pa6', 'pa7', 'pe4', 'pe5', 'pe6', 'pe7'], flatList);
-    $scope.fan1Dc = { name: 'fan1_dc', value: 101 };
+    $scope.fan1Dc = { name: 'fan1_dc', value: 127 };
     flatList['fan1_dc'] = $scope.fan1Dc;
-    $scope.fan2Dc = { name: 'fan2_dc', value: 202 };
+    $scope.fan2Dc = { name: 'fan2_dc', value: 127 };
     flatList['fan2_dc'] = $scope.fan2Dc;
+    $scope.current = { name: 'current', value: 0 };
+    flatList['current'] = $scope.current;
 
     socket.on('data', function (sig) {
         if (flatList[sig.name]) {
@@ -39,6 +41,11 @@ app.controller('DataLoggerCtrl', ['$scope', 'uibButtonConfig', function ($scope,
             $scope.$digest();
         } else {
             console.log(sig);
+            if (sig.name === 'error_code') {
+                $scope.addLog('error', 'An error has occured.', sig.value);
+            } else {
+                $scope.addLog('info', sig.name, sig.value);
+            }
         }
     });
 
@@ -100,6 +107,25 @@ app.controller('DataLoggerCtrl', ['$scope', 'uibButtonConfig', function ($scope,
     };
     $scope.agg = {};
     var tempCount = flatTemps.length;
+
+    var logs = [];
+    $scope.logging = {
+        logs: logs,
+        verbose: false
+    };
+    $scope.addLog = function (type, text, data) {
+        type = type || 'info';
+        if ($scope.logging.verbose === false && type !== 'error') return;
+        logs.unshift({
+            type: type,
+            text: text,
+            data: data,
+            timestamp: new Date()
+        });
+        if (logs.length > 20) {
+            logs.pop();
+        }
+    };
 
     function aggregateInterval() {
         var ctbs = $scope.cellTables;

@@ -50,6 +50,8 @@
             </Producer>
             <Signal name="sum_of_cells" endianess="big" offset="0" length="16"/>
             <Signal name="current" endianess="big" offset="16" length="16"/>
+
+            <Signal name="error_code" endianess="big" offset="48" length="16"/>
         </Message>
         {{#voltages}}{{#messages}}
         <Message id="{{id}}" name="{{name}}" length="{{length}}">

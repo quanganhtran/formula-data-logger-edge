@@ -73,7 +73,7 @@ function getTemplateData() {
         for (var j = 0; j < 12; j++) {
             board.push({ name: 'board' + (i + 1) + 'cell' + (j + 1) });
         }
-        boards.push({ cells: board});
+        boards.push({ cells: board });
     }
     return {
         cellTables: boards

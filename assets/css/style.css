@@ -1,0 +1,25 @@
+.info-box {
+    display: inline-block;
+    width: 200px;
+    padding: 1px 5px;
+    text-align: left;
+    border: solid 2px;
+    border-radius: 2px;
+}
+#log .panel-body {
+    height: 20vh;
+    overflow: auto;
+    padding-top: 0;
+}
+#log tr:not(.danger) {
+    display: none;
+}
+#log tr.verbose {
+    display: table-row;
+}
+#aggregation .panel-body, #current .panel-body {
+    text-align: right
+}
+#fan_dc input[type="number"], #fan_dc .info-box {
+    width: 8em
+}

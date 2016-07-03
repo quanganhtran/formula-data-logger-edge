@@ -28,8 +28,6 @@
             <Signal name="abs_over" offset="23"/>
 
             <!--ext_status_flags byte-->
-            <Signal name="pec_error" offset="26"/>
-            <Signal name="can_error" offset="27"/>
             <Signal name="over_i" offset="28"/>
             <Signal name="over_p" offset="29"/>
             <Signal name="nom_t" offset="30"/>
@@ -65,6 +63,8 @@
             </Producer>
             <Signal name="sum_of_cells" endianess="big" offset="0" length="16"/>
             <Signal name="current" endianess="big" offset="16" length="16"/>
+
+            <Signal name="error_code" endianess="big" offset="48" length="16"/>
         </Message>
         <Message id="0x772" name="msgCell_board1_part1" length="8">
             <Producer>
