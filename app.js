@@ -40,12 +40,16 @@ io.on('connection', function(socket){
     socket.on('disconnect', function(){
         console.log('A client disconnected');
     });
-	//const entryMsgName = 'Data request';
-	//setInterval(function() {
-	//	channel.send({ id: 1900, rtr: true, data: new Buffer(0) });
-	//}, 500);
+	var acceptRequest = true;
     socket.on('request', function () {
+        if (!acceptRequest) {
+            return;
+        }
         console.log('Web to BMS: Requesting info');
+        acceptRequest = false;
+        setTimeout(function () {
+            acceptRequest = true;
+        }, 400);
         channel.send({ id: 1900, rtr: true, data: new Buffer(0) });
     });
     var ctrlMsgName = 'Status data of BMS';

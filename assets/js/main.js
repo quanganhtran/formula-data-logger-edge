@@ -47,6 +47,19 @@ app.controller('DataLoggerCtrl', ['$scope', 'uibButtonConfig', function ($scope,
         socket.emit('request');
     };
 
+    $scope.autoRequest = false;
+    $scope.toggleInfo = (function () {
+        var id;
+        return function() {
+            if ($scope.autoRequest) {
+                clearInterval(id);
+            } else {
+                id = setInterval($scope.requestInfo, 500);
+            }
+            $scope.autoRequest = !$scope.autoRequest;
+        }
+    })();
+
     $scope.updateSettings = function () {
         console.log('Sending to the server...');
         console.log($scope.settingsFlags);

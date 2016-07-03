@@ -28,7 +28,9 @@
             <div id="main-control" class="panel panel-default">
                 <div class="panel-heading">Main Control</div>
                 <div class="panel-body">
-                    <button class="btn btn-primary" ng-click="requestInfo()">Request BMS</button>
+                    <button class="btn btn-primary" ng-click="requestInfo()" ng-hide="autoRequest">Request BMS</button>
+                    <button class="btn btn-primary" ng-click="toggleInfo()" ng-hide="autoRequest">Start Auto</button>
+                    <button class="btn btn-danger" ng-click="toggleInfo()" ng-show="autoRequest">Stop Auto</button>
                 </div>
             </div>
             <div id="settings_flags" class="panel panel-default">
