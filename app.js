@@ -1,6 +1,4 @@
-/**
- * Created by Anh on 5/28/2016.
- */
+/* global process, require */
 // Configuration constants
 const CHANNEL_LINK = process.argv[2] || 'vcan0';
 
