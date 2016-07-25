@@ -9,10 +9,10 @@ Current .dll files might be incompatible with your system architecture, in that 
 Install:
 - Clone the repo
 - Install the dependencies with
-user> npm install
-user> bower install
+  npm install
+  bower install
 
 Run:
-user> node index.js
+  node index.js
 
 The web UI is located at http://localhost:3000/assets
