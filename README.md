@@ -14,7 +14,7 @@ Current .dll files might be incompatible with your system architecture, in that 
 
 \> bower install
 
-- Run:
+## Run:
 
 \> node index.js
 
