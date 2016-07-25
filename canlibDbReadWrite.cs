@@ -26,6 +26,7 @@ public class Startup
 
         return new {
             init = (Func<object,Task<object>>)Init,
+            request = (Func<object,Task<object>>)Request,
             send = (Func<object,Task<object>>)Send,
             close = (Func<object,Task<object>>)Close
         };
@@ -62,7 +63,6 @@ public class Startup
             Task.Run(() => DumpMessageLoop());
         }
 
-        Console.WriteLine("Loop returned");
         return 0;
     }
 
@@ -164,7 +164,8 @@ public class Startup
         }
     }
 
-    private static async Task<object> Send(dynamic input) {
+    private static async Task<object> Send(dynamic input)
+    {
         Console.WriteLine(input);
 
         // byte[] data = new byte[8];
@@ -203,6 +204,12 @@ public class Startup
         //     Canlib.canWriteWait(chanhandle, msgId, data, 8, msgFlags, 50);
         // }
 
+        return null;
+    }
+
+    private static async Task<object> Request(dynamic input)
+    {
+        Canlib.canWriteWait(chanhandle, 1900, null, 0, Canlib.canMSG_RTR, 50);
         return null;
     }
 

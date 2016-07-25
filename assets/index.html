@@ -34,7 +34,11 @@
                             <div class="panel-heading">Settings</div>
                             <div class="panel-body">
                                 <div ng-repeat="flag in settingsFlags">
-                                    <label class="btn btn-default" ng-model="flag.value" uib-btn-checkbox>
+                                    <label class="btn btn-default"
+                                           ng-model="flag.value"
+                                           btn-checkbox-false="0"
+                                           btn-checkbox-true="1"
+                                           uib-btn-checkbox>
                                         {{flag.name}}
                                     </label>
                                 </div>
@@ -71,7 +75,11 @@
                             <div class="panel-heading">io_state</div>
                             <div class="panel-body">
                                 <div ng-repeat="flag in ioState">
-                                    <label class="btn btn-default" ng-model="flag.value" uib-btn-checkbox>
+                                    <label class="btn btn-default"
+                                           ng-model="flag.value"
+                                           btn-checkbox-false="0"
+                                           btn-checkbox-true="1"
+                                           uib-btn-checkbox>
                                         {{flag.name}}
                                     </label>
                                 </div>

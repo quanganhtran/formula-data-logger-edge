@@ -1,7 +1,7 @@
 {
-  "name": "formula-data-logger",
+  "name": "formula-data-logger-edge",
   "version": "1.0.0",
-  "description": "Data logger for the BMS",
+  "description": "Data logger for the BMS using EdgeJS and Kvaser CANlib",
   "main": "app.js",
   "dependencies": {
     "angular-ui-bootstrap": "^1.3.3",

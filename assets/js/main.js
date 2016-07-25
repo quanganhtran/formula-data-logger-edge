@@ -1,5 +1,5 @@
 // Constants
-const HOST = 'http://192.168.0.110:3000';
+const HOST = 'http://localhost:3000';
 
 var app = angular.module('DataLogger', ['ui.bootstrap']);
 
@@ -145,12 +145,24 @@ app.controller('DataLoggerCtrl', ['$scope', 'uibButtonConfig', function ($scope,
             };
             ttb.agg.avg = (ttb.agg.sum / ttb.cells.length);
         });
-        $scope.agg.cellMin = aggregation.min(ctbs.map(ctb => ({ value: ctb.agg.min })));
-        $scope.agg.cellMax = aggregation.max(ctbs.map(ctb => ({ value: ctb.agg.max })));
-        $scope.agg.cellSum = aggregation.sum(ctbs.map(ctb => ({ value: ctb.agg.sum })));
-        $scope.agg.tempMin = aggregation.min(ttbs.map(ttb => ({ value: ttb.agg.min })));
-        $scope.agg.tempMax = aggregation.max(ttbs.map(ttb => ({ value: ttb.agg.max })));
-        $scope.agg.tempAvg = aggregation.sum(ttbs.map(ttb => ({ value: ttb.agg.sum }))) / tempCount;
+        $scope.agg.cellMin = aggregation.min(ctbs.map(function (ctb) {
+            return { value: ctb.agg.min }
+        }));
+        $scope.agg.cellMax = aggregation.max(ctbs.map(function (ctb) {
+            return { value: ctb.agg.max }
+        }));
+        $scope.agg.cellSum = aggregation.sum(ctbs.map(function (ctb) {
+            return { value: ctb.agg.sum }
+        }));
+        $scope.agg.tempMin = aggregation.min(ttbs.map(function (ttb) {
+            return { value: ttb.agg.min }
+        }));
+        $scope.agg.tempMax = aggregation.max(ttbs.map(function (ttb) {
+            return { value: ttb.agg.max }
+        }));
+        $scope.agg.tempAvg = aggregation.sum(ttbs.map(function (ttb) {
+            return { value: ttb.agg.sum }
+        })) / tempCount;
         setTimeout(aggregateInterval, 500);
     }
     aggregateInterval();
@@ -202,7 +214,7 @@ app.controller('DataLoggerCtrl', ['$scope', 'uibButtonConfig', function ($scope,
         return flags.map(function (flag) {
             var flagObj = {
                 name: flag,
-                value: true
+                value: 0
             };
             attachTo[flag] = flagObj;
             return flagObj;

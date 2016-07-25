@@ -1,12 +1,12 @@
 {
-  "name": "formula-data-logger",
+  "name": "formula-data-logger-edge",
   "description": "Data logger for the BMS",
   "main": "app.js",
   "authors": [
     "Anh Do"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/quanganhtran/formula-data-logger-nodejs",
+  "homepage": "https://github.com/quanganhtran/formula-data-logger-edge",
   "moduleType": [
     "node"
   ],
