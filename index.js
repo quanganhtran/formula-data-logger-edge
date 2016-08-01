@@ -1,11 +1,12 @@
+// Environment variables
+process.env['EDGE_CS_DEBUG'] = 1;
+
 // Configuration constants
 const CHANNEL_LINK = process.argv[2] || 'vcan0';
 
 // Dependencies
 
 var edge    = require('edge'),
-    util    = require('util'),
-    fs      = require('fs'),
     express = require('express'),
     app     = express(),
     server  = require('http').Server(app),
@@ -52,12 +53,10 @@ getKvaser({
         var ctrlMsgName = 'Status_data_of_BMS';
         socket.on('settings', function (signals) {
             // TODO Send settings frame to Edge
+            kvaser.send(signals);
         });
     });
     console.log('Web server started.');
-
-    //initListeners();
-    console.log('CAN service initialized');
 });
 
 function getTemplateData() {
@@ -72,27 +71,4 @@ function getTemplateData() {
     return {
         cellTables: boards
     };
-}
-
-function initListeners() {
-    var msgNameList = network.nodes['1'].buses['BMS Bus'].produces.map(function (msg) {
-        return msg.name;
-    });
-    for (var m in msgNameList) {
-        var msg = msgNameList[m];
-        if (db.messages.hasOwnProperty(msg)) {
-            var message = db.messages[msg];
-            for (var sig in message.signals) {
-                if (message.signals.hasOwnProperty(sig)) {
-                    message.signals[sig].onChange(function(s) {
-                        console.log('to BMS: ' + s.name + ' ' + s.value);
-                        io.emit('data', {
-                            name: s.name,
-                            value: s.value
-                        });
-                    });
-                }
-            }
-        }
-    }
 }

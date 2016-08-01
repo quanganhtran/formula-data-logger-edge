@@ -44,7 +44,7 @@ public class Startup
         chanhandle = Canlib.canOpenChannel(channel, Canlib.canOPEN_ACCEPT_VIRTUAL);
         DisplayError((Canlib.canStatus)chanhandle, "canSetBusParams");
 
-        status = Canlib.canSetBusParams(chanhandle, Canlib.canBITRATE_250K, 0, 0, 0, 0, 0);
+        status = Canlib.canSetBusParams(chanhandle, Canlib.canBITRATE_1M, 0, 0, 0, 0, 0);
         DisplayError(status, "canSetBusParams");
 
         status = Canlib.canBusOn(chanhandle);
@@ -111,6 +111,10 @@ public class Startup
 
     private static async Task DumpMessage(int id, byte[] data, int dlc, int flags, long time)
     {
+        if (id < 1900 && 1965 < id) {
+            return;
+        }
+
         Kvadblib.Status status;
         Kvadblib.MessageHnd mh = new Kvadblib.MessageHnd();
         Kvadblib.SignalHnd sh = new Kvadblib.SignalHnd();

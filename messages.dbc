@@ -1,7 +1,7 @@
 VERSION "HIPBNYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY/4/%%%/4/'%**4YYY///"
 
 
-NS_ : 
+NS_ :
 	NS_DESC_
 	CM_
 	BA_DEF_
@@ -63,345 +63,345 @@ BO_ 1901 Status_data_of_BMS: 8 BMS
  SG_ pe7 : 63|1@1+ (1,0) [0|1] "" Vector__XXX
 
 BO_ 1902 Status_data_of_BMS_second_msg: 8 BMS
- SG_ sum_of_cells : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ current : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ error_code : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ sum_of_cells : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ current : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ error_code : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1906 msgCell_board1_part1: 8 BMS
- SG_ board1_cell1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board1_cell2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board1_cell3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board1_cell4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_cell1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_cell2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_cell3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_cell4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1907 msgCell_board1_part2: 8 BMS
- SG_ board1_cell5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board1_cell6 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board1_cell7 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board1_cell8 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_cell5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_cell6 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_cell7 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_cell8 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1908 msgCell_board1_part3: 8 BMS
- SG_ board1_cell9 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board1_cell10 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board1_cell11 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board1_cell12 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_cell9 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_cell10 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_cell11 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_cell12 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1909 msgCell_board2_part1: 8 BMS
- SG_ board2_cell1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board2_cell2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board2_cell3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board2_cell4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_cell1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_cell2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_cell3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_cell4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1910 msgCell_board2_part2: 8 BMS
- SG_ board2_cell5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board2_cell6 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board2_cell7 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board2_cell8 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_cell5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_cell6 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_cell7 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_cell8 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1911 msgCell_board2_part3: 8 BMS
- SG_ board2_cell9 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board2_cell10 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board2_cell11 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board2_cell12 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_cell9 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_cell10 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_cell11 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_cell12 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1912 msgCell_board3_part1: 8 BMS
- SG_ board3_cell1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board3_cell2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board3_cell3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board3_cell4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_cell1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_cell2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_cell3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_cell4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1913 msgCell_board3_part2: 8 BMS
- SG_ board3_cell5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board3_cell6 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board3_cell7 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board3_cell8 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_cell5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_cell6 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_cell7 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_cell8 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1914 msgCell_board3_part3: 8 BMS
- SG_ board3_cell9 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board3_cell10 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board3_cell11 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board3_cell12 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_cell9 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_cell10 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_cell11 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_cell12 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1915 msgCell_board4_part1: 8 BMS
- SG_ board4_cell1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board4_cell2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board4_cell3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board4_cell4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_cell1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_cell2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_cell3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_cell4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1916 msgCell_board4_part2: 8 BMS
- SG_ board4_cell5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board4_cell6 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board4_cell7 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board4_cell8 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_cell5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_cell6 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_cell7 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_cell8 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1917 msgCell_board4_part3: 8 BMS
- SG_ board4_cell9 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board4_cell10 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board4_cell11 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board4_cell12 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_cell9 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_cell10 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_cell11 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_cell12 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1918 msgCell_board5_part1: 8 BMS
- SG_ board5_cell1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board5_cell2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board5_cell3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board5_cell4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_cell1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_cell2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_cell3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_cell4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1919 msgCell_board5_part2: 8 BMS
- SG_ board5_cell5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board5_cell6 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board5_cell7 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board5_cell8 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_cell5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_cell6 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_cell7 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_cell8 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1920 msgCell_board5_part3: 8 BMS
- SG_ board5_cell9 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board5_cell10 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board5_cell11 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board5_cell12 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_cell9 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_cell10 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_cell11 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_cell12 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1921 msgCell_board6_part1: 8 BMS
- SG_ board6_cell1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board6_cell2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board6_cell3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board6_cell4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_cell1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_cell2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_cell3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_cell4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1922 msgCell_board6_part2: 8 BMS
- SG_ board6_cell5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board6_cell6 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board6_cell7 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board6_cell8 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_cell5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_cell6 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_cell7 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_cell8 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1923 msgCell_board6_part3: 8 BMS
- SG_ board6_cell9 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board6_cell10 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board6_cell11 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board6_cell12 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_cell9 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_cell10 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_cell11 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_cell12 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1924 msgCell_board7_part1: 8 BMS
- SG_ board7_cell1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board7_cell2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board7_cell3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board7_cell4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_cell1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_cell2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_cell3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_cell4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1925 msgCell_board7_part2: 8 BMS
- SG_ board7_cell5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board7_cell6 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board7_cell7 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board7_cell8 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_cell5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_cell6 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_cell7 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_cell8 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1926 msgCell_board7_part3: 8 BMS
- SG_ board7_cell9 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board7_cell10 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board7_cell11 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board7_cell12 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_cell9 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_cell10 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_cell11 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_cell12 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1927 msgCell_board8_part1: 8 BMS
- SG_ board8_cell1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board8_cell2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board8_cell3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board8_cell4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_cell1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_cell2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_cell3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_cell4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1928 msgCell_board8_part2: 8 BMS
- SG_ board8_cell5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board8_cell6 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board8_cell7 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board8_cell8 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_cell5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_cell6 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_cell7 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_cell8 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1929 msgCell_board8_part3: 8 BMS
- SG_ board8_cell9 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board8_cell10 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board8_cell11 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board8_cell12 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_cell9 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_cell10 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_cell11 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_cell12 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1930 msgCell_board9_part1: 8 BMS
- SG_ board9_cell1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board9_cell2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board9_cell3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board9_cell4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_cell1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_cell2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_cell3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_cell4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1931 msgCell_board9_part2: 8 BMS
- SG_ board9_cell5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board9_cell6 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board9_cell7 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board9_cell8 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_cell5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_cell6 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_cell7 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_cell8 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1932 msgCell_board9_part3: 8 BMS
- SG_ board9_cell9 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board9_cell10 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board9_cell11 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board9_cell12 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_cell9 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_cell10 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_cell11 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_cell12 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1933 msgCell_board10_part1: 8 BMS
- SG_ board10_cell1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board10_cell2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board10_cell3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board10_cell4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_cell1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_cell2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_cell3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_cell4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1934 msgCell_board10_part2: 8 BMS
- SG_ board10_cell5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board10_cell6 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board10_cell7 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board10_cell8 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_cell5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_cell6 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_cell7 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_cell8 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1935 msgCell_board10_part3: 8 BMS
- SG_ board10_cell9 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board10_cell10 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board10_cell11 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board10_cell12 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_cell9 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_cell10 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_cell11 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_cell12 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1936 msgCell_board11_part1: 8 BMS
- SG_ board11_cell1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board11_cell2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board11_cell3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board11_cell4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_cell1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_cell2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_cell3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_cell4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1937 msgCell_board11_part2: 8 BMS
- SG_ board11_cell5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board11_cell6 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board11_cell7 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board11_cell8 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_cell5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_cell6 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_cell7 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_cell8 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1938 msgCell_board11_part3: 8 BMS
- SG_ board11_cell9 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board11_cell10 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board11_cell11 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board11_cell12 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_cell9 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_cell10 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_cell11 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_cell12 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1939 msgCell_board12_part1: 8 BMS
- SG_ board12_cell1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board12_cell2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board12_cell3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board12_cell4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_cell1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_cell2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_cell3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_cell4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1940 msgCell_board12_part2: 8 BMS
- SG_ board12_cell5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board12_cell6 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board12_cell7 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board12_cell8 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_cell5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_cell6 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_cell7 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_cell8 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1941 msgCell_board12_part3: 8 BMS
- SG_ board12_cell9 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board12_cell10 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board12_cell11 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board12_cell12 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_cell9 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_cell10 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_cell11 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_cell12 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1942 msgTemp_board1_part1: 8 BMS
- SG_ board1_temp1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board1_temp2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board1_temp3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board1_temp4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_temp1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_temp2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_temp3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_temp4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1943 msgTemp_board1_part2: 4 BMS
- SG_ board1_temp5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board1_vref : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_temp5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board1_vref : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1944 msgTemp_board2_part1: 8 BMS
- SG_ board2_temp1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board2_temp2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board2_temp3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board2_temp4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_temp1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_temp2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_temp3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_temp4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1945 msgTemp_board2_part2: 4 BMS
- SG_ board2_temp5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board2_vref : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_temp5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board2_vref : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1946 msgTemp_board3_part1: 8 BMS
- SG_ board3_temp1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board3_temp2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board3_temp3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board3_temp4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_temp1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_temp2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_temp3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_temp4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1947 msgTemp_board3_part2: 4 BMS
- SG_ board3_temp5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board3_vref : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_temp5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board3_vref : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1948 msgTemp_board4_part1: 8 BMS
- SG_ board4_temp1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board4_temp2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board4_temp3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board4_temp4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_temp1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_temp2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_temp3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_temp4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1949 msgTemp_board4_part2: 4 BMS
- SG_ board4_temp5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board4_vref : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_temp5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board4_vref : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1950 msgTemp_board5_part1: 8 BMS
- SG_ board5_temp1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board5_temp2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board5_temp3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board5_temp4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_temp1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_temp2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_temp3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_temp4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1951 msgTemp_board5_part2: 4 BMS
- SG_ board5_temp5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board5_vref : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_temp5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board5_vref : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1952 msgTemp_board6_part1: 8 BMS
- SG_ board6_temp1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board6_temp2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board6_temp3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board6_temp4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_temp1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_temp2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_temp3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_temp4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1953 msgTemp_board6_part2: 4 BMS
- SG_ board6_temp5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board6_vref : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_temp5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board6_vref : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1954 msgTemp_board7_part1: 8 BMS
- SG_ board7_temp1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board7_temp2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board7_temp3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board7_temp4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_temp1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_temp2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_temp3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_temp4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1955 msgTemp_board7_part2: 4 BMS
- SG_ board7_temp5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board7_vref : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_temp5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board7_vref : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1956 msgTemp_board8_part1: 8 BMS
- SG_ board8_temp1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board8_temp2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board8_temp3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board8_temp4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_temp1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_temp2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_temp3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_temp4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1957 msgTemp_board8_part2: 4 BMS
- SG_ board8_temp5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board8_vref : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_temp5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board8_vref : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1958 msgTemp_board9_part1: 8 BMS
- SG_ board9_temp1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board9_temp2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board9_temp3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board9_temp4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_temp1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_temp2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_temp3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_temp4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1959 msgTemp_board9_part2: 4 BMS
- SG_ board9_temp5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board9_vref : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_temp5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board9_vref : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1960 msgTemp_board10_part1: 8 BMS
- SG_ board10_temp1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board10_temp2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board10_temp3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board10_temp4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_temp1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_temp2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_temp3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_temp4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1961 msgTemp_board10_part2: 4 BMS
- SG_ board10_temp5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board10_vref : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_temp5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board10_vref : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1962 msgTemp_board11_part1: 8 BMS
- SG_ board11_temp1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board11_temp2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board11_temp3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board11_temp4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_temp1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_temp2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_temp3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_temp4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1963 msgTemp_board11_part2: 4 BMS
- SG_ board11_temp5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board11_vref : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_temp5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board11_vref : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1964 msgTemp_board12_part1: 8 BMS
- SG_ board12_temp1 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board12_temp2 : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board12_temp3 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board12_temp4 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_temp1 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_temp2 : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_temp3 : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_temp4 : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 1965 msgTemp_board12_part2: 4 BMS
- SG_ board12_temp5 : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
- SG_ board12_vref : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_temp5 : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ board12_vref : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
 
 
 BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
